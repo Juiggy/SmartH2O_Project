@@ -36,7 +36,7 @@
       <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
     </Reference>
     <Reference Include="SensorNodeDll">
-      <HintPath>D:\IS\SensorNodeDll.dll</HintPath>
+      <HintPath>..\SensorNodeDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
