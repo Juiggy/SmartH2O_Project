@@ -67,6 +67,8 @@ namespace SmartH2O_Data_Uploader
                 //nao houve erros, publico mensagem
 
                 Console.WriteLine("tudo okay");
+                string xmlOutput = sensorXML.OuterXml;
+                Console.WriteLine(xmlOutput);
             }
             
          
