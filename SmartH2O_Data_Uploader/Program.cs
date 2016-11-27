@@ -10,6 +10,7 @@ using uPLibrary.Networking.M2Mqtt.Messages; //lib para Mosquitto
 using System.Xml;
 using System.Xml.Schema;
 using System.IO;
+using System.Net;
 
 
 namespace SmartH2O_Data_Uploader
@@ -65,15 +66,44 @@ namespace SmartH2O_Data_Uploader
             if (!validationErrors)
             {
                 //nao houve erros, publico mensagem
+                MqttClient m_cClient = new MqttClient(IPAddress.Parse(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP));
+                string[] m_strTopicsInfo = { "dataSensor" };
 
-                Console.WriteLine("tudo okay");
-                string xmlOutput = sensorXML.OuterXml;
-                Console.WriteLine(xmlOutput);
+                try
+                { 
+                   if(!m_cClient.IsConnected)
+                        m_cClient.Connect(Guid.NewGuid().ToString());
+                    
+                    if (!m_cClient.IsConnected)
+                    {
+                        Console.WriteLine("Error connecting to message broker...");
+                    
+                    }else { 
+
+
+                        string xmlOutput = sensorXML.OuterXml;
+                        m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput));
+
+                        Console.WriteLine("Mensagem Publicada");
+                    //   Console.WriteLine(xmlOutput);
+                        
+
+                    //m_cClient.Unsubscribe(m_strTopicsInfo); //Put this in a button to see notif!
+                    //m_cClient.Disconnect(); //Free process and process's resources
+
+                    }
+                }catch (Exception e)
+                {
+                    Console.WriteLine("erro a enviar mensagem");
+                    Console.WriteLine(e);
+                }
+
+
             }
-            
-         
+
+
         }
 
-        
+
     }
 }

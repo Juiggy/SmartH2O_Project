@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SmartH2O_Data_Uploader.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="sensorTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2000</Value>
+    <Setting Name="BrookerIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
-    <Setting Name="teste" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">65864</Value>
+    <Setting Name="sensorTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
     </Setting>
   </Settings>
 </SettingsFile>
