@@ -17,16 +17,45 @@ namespace SmartH2O_Data_Uploader
 {
     class Program
     {
+
+        //nao houve erros, publico mensagem
+        static MqttClient m_cClient; //= new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP);
+        static XmlSchemaSet schema = new XmlSchemaSet();
+        string[] m_strTopicsInfo = { "dataSensor" };
         static void Main(string[] args)
         {
+            //valido o XML com o schema
+            //schema = new XmlSchemaSet();
 
+            //como fazer isto de forma mais dinamica?
+            
+
+            string schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\XMLSensorDataMsgSchema.xsd";
+            schema.Add("", schemaPath);
+
+            m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP);
             SensorNodeDll.SensorNodeDll dll = new SensorNodeDll.SensorNodeDll();
             int delay = SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime;
-                   
-            //Inicializo da DLL - vai estar a correr ate app encerrar
-            dll.Initialize(sendData, delay);
+            
+            try { 
+            if (!m_cClient.IsConnected)
+                m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
+                m_cClient.Connect(Guid.NewGuid().ToString());
 
-            Console.ReadKey();
+                if (!m_cClient.IsConnected)
+                {
+                    Console.WriteLine("Error connecting to message broker...");
+                }
+                else {
+                    //Inicializo da DLL - vai estar a correr ate app encerrar
+                    dll.Initialize(sendData, delay);
+                }
+                }catch (Exception e)
+                {
+                    Console.WriteLine("erro a enviar mensagem");
+                    Console.WriteLine(e);
+                }
+    Console.ReadKey();
         }
         private static void sendData(string str)
         {
@@ -35,17 +64,7 @@ namespace SmartH2O_Data_Uploader
 
             //chamo metodo que devolve os dados do objecto em XML
             XmlDocument sensorXML = sensorData.getDataInXML();
-
-          
-            //valido o XML com o schema
-            XmlSchemaSet schema = new XmlSchemaSet();
             
-            //como fazer isto de forma mais dinamica?
-            string schemaPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\SoftwareOrganizationSmartH2O\\XMLSensorDataMsgSchema.xsd";
-            schema.Add("", schemaPath);
-                       
-                
-
             bool validationErrors = false;
             sensorXML.Schemas.Add(schema);
            
@@ -59,51 +78,29 @@ namespace SmartH2O_Data_Uploader
                     Console.ResetColor(); 
 
                 });
-                
-
-                
+                              
                 //publico o XML devidamente validado - Mosquitto
             if (!validationErrors)
             {
-                //nao houve erros, publico mensagem
-                MqttClient m_cClient = new MqttClient(IPAddress.Parse(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP));
-                string[] m_strTopicsInfo = { "dataSensor" };
-
-                try
-                { 
-                   if(!m_cClient.IsConnected)
-                        m_cClient.Connect(Guid.NewGuid().ToString());
-                    
-                    if (!m_cClient.IsConnected)
-                    {
-                        Console.WriteLine("Error connecting to message broker...");
-                    
-                    }else { 
-
+                 
+                       // m_cClient.CleanSession();
 
                         string xmlOutput = sensorXML.OuterXml;
-                        m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput));
-
-                        Console.WriteLine("Mensagem Publicada");
+                        m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2,true);
+                       
+                     //   Console.WriteLine("Mensagem Publicada");
                     //   Console.WriteLine(xmlOutput);
                         
 
                     //m_cClient.Unsubscribe(m_strTopicsInfo); //Put this in a button to see notif!
                     //m_cClient.Disconnect(); //Free process and process's resources
 
-                    }
-                }catch (Exception e)
-                {
-                    Console.WriteLine("erro a enviar mensagem");
-                    Console.WriteLine(e);
-                }
-
-
-            }
-
-
+            }         
         }
 
-
+        private static void m_cClient_MsgPublished(object sender, MqttMsgPublishedEventArgs e)
+        {
+            Console.WriteLine("Mensagem Publicada");
+        }
     }
 }
