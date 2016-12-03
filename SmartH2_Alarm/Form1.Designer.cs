@@ -51,6 +51,11 @@
             // 
             this.checked_list_box_alarms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checked_list_box_alarms.FormattingEnabled = true;
+            this.checked_list_box_alarms.Items.AddRange(new object[] {
+            "asgas",
+            "asdagsasg",
+            "asdasdag",
+            "asdasdags"});
             this.checked_list_box_alarms.Location = new System.Drawing.Point(77, 165);
             this.checked_list_box_alarms.Name = "checked_list_box_alarms";
             this.checked_list_box_alarms.Size = new System.Drawing.Size(507, 214);

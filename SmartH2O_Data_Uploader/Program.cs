@@ -12,25 +12,25 @@ using System.Xml.Schema;
 using System.IO;
 using System.Net;
 
-
-
 namespace SmartH2O_Data_Uploader
 {
     class Program
-    {
-
+    {     
         //nao houve erros, publico mensagem
-        static MqttClient m_cClient; //= new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP);
+        static MqttClient m_cClient; 
         static XmlSchemaSet schema = new XmlSchemaSet();
         string[] m_strTopicsInfo = { "dataSensor" };
         static SensorNodeDll.SensorNodeDll dll;
         static bool auxFlag;
         static void Main(string[] args)
         {
-
-            dll = new SensorNodeDll.SensorNodeDll(); 
+            bool aux_m_cClient = true;
             //MENU
             int option;
+
+            int delay = SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime;
+            //SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP
+
             do
             {
                 Console.Clear();
@@ -39,15 +39,15 @@ namespace SmartH2O_Data_Uploader
                 Console.SetCursorPosition(8, 1); Console.WriteLine("Developers: Joana Vilhena | Joel Rodrigues | Sergio Batista");
                 Console.ResetColor();
                 Console.WriteLine();
-                Console.Write("Please Enter Your Choice: \n\n\n 1. Start Application \n 2. Debug \n 3. Settings \n 0. Exit \n ");
+                Console.Write("Please Enter Your Choice: \n\n 1. Start Application \n 2. Set Delay Time \n 3. Set IP for Broker \n 0. Exit \n ");
                 Console.WriteLine("------------------");
-
                 option = Int32.Parse(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
                         {
-                            
+                            //escolho criar a dll aqui, porque depois de um stop ela nao volta a correr o metodo Initialize
+                            dll = new SensorNodeDll.SensorNodeDll();
                             Console.Clear();
                             try
                             {
@@ -62,71 +62,83 @@ namespace SmartH2O_Data_Uploader
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
+                            // tenho de verificar se o m_cClient já existe
+                            if(aux_m_cClient)
+                                try
+                                {
+                                    aux_m_cClient = false;
+                                    m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                                    m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
+                                }
+                                catch( Exception e)
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.WriteLine("erro a fazer ligacao ao broker - IP incorrecto");
+                                    Console.ReadKey();
+                                    Environment.Exit(1);
+                                }                                                                        
                             try
                             {
-                                m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrookerIP);
-                            }
-                            catch( Exception e)
-                            {
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("erro a fazer ligacao ao brooker - IP incorrecto");
-                                Console.ReadKey();
-                                Environment.Exit(1);
-                            }                           
-                                                  
-                            try
-                            {
-                                int delay = SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime;
-                      //          m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
+                                                              
                                 if (!m_cClient.IsConnected)
                                 {
                                     m_cClient.Connect(Guid.NewGuid().ToString());
                                     
                                 }
-                                bool opSair = false;
-                                //criar listener que mete true com conjunto de teclas ou signal
-
-                                Console.CancelKeyPress += new ConsoleCancelEventHandler(myHandler);
-                                auxFlag = false;
+                                Console.WriteLine("Press ESC to quit\n---------------------------------");
+                                auxFlag = false;                            
                                 dll.Initialize(sendData, delay);
-                                
                                 do
                                 {
-
-                                } while (!auxFlag);
-                                /*
-                                if (!m_cClient.IsConnected)
-                                {
-                                    Console.WriteLine("Error connecting to message broker...");
-                                }
-                                else
-                                {
-                                    //Inicializo da DLL - vai estar a correr ate app encerrar
-                                    dll.Initialize(sendData, delay);
-                                }*/
+                                    //fica a escrever na janela até clicar na tecla ESC
+                                } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+                                dll.Stop();
+                                auxFlag = true;
                             }
                             catch (Exception e)
                             {
                                 Console.WriteLine("erro a enviar mensagem");
                                 Console.WriteLine(e);
                             }
-                            
+
+                            Console.Clear();
                         }
                         break;
                     case 2:
                         {
-                            
-
+                            Console.Clear();
+                            //ponderar passar a mostrar valor em segundo e ler em segundos - tlv minutos! falar com colegas
+                            Console.WriteLine("Delay Time value (ms): " + delay.ToString());
+                            Console.Write("\nSet new Delay time (ms): ");
+                            delay = Int32.Parse(Console.ReadLine());
+                            //guardar valor delay do ecra
+                            SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime=delay;
+                            SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
                         }
                         break;
                     case 3:
                         {
+                            Console.Clear();
+                            Console.WriteLine("Brokers IP: " + SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                            Console.Write("\nSet the new IP for the Broker: ");
+                            string broker = Console.ReadLine();
                             
-
+                            if (ValidateIPv4(broker))
+                            {
+                                SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP = broker;
+                                SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
+                            }
+                            else
+                            {
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("\n\n"+broker +" is not a valid IP");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                            }
                         }
                         break;
-
                     case 0:
                         {
                             Environment.Exit(0);
@@ -166,11 +178,8 @@ namespace SmartH2O_Data_Uploader
                 //publico o XML devidamente validado - Mosquitto
             if (!validationErrors)
             {
-
                  string xmlOutput = sensorXML.OuterXml;
                  m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2,true);
-              //   Console.WriteLine("Mensagem Publicada");
-
             }         
         }
 
@@ -178,13 +187,26 @@ namespace SmartH2O_Data_Uploader
         {
             if (!auxFlag)
                 Console.WriteLine("Mensagem Publicada");
+        }
 
-        }
-        private static void myHandler(object sender, ConsoleCancelEventArgs args)
+        //metodos da interwebs
+        private static bool ValidateIPv4(string ipString)
         {
-            dll.Stop();
-            args.Cancel = true;
-            auxFlag = true;
+            if (String.IsNullOrWhiteSpace(ipString))
+            {
+                return false;
+            }
+
+            string[] splitValues = ipString.Split('.');
+            if (splitValues.Length != 4)
+            {
+                return false;
+            }
+
+            byte tempForParsing;
+
+            return splitValues.All(r => byte.TryParse(r, out tempForParsing));
         }
+
     }
 }

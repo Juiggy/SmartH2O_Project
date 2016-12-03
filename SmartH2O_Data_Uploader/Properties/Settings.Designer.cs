@@ -26,12 +26,12 @@ namespace SmartH2O_Data_Uploader.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
-        public string BrookerIP {
+        public string BrokerIP {
             get {
-                return ((string)(this["BrookerIP"]));
+                return ((string)(this["BrokerIP"]));
             }
             set {
-                this["BrookerIP"] = value;
+                this["BrokerIP"] = value;
             }
         }
         

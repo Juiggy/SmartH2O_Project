@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SmartH2O_Data_Uploader.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="BrookerIP" Type="System.String" Scope="User">
+    <Setting Name="BrokerIP" Type="System.String" Scope="User">
       <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
     <Setting Name="sensorTime" Type="System.Int32" Scope="User">
