@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace SmartH2_Alarm
 {
-    public partial class Form1 : Form
+    public partial class Form_Alarms : Form
     {
-        public Form1()
+      
+
+        public Form_Alarms()
         {
             InitializeComponent();
         }
 
         private void button_options_Click(object sender, EventArgs e)
         {
-           
+            string promptValue = Prompt.ShowDialog("Insira novo IP", "Options");
         }
     }
 }
