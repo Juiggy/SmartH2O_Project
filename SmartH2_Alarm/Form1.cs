@@ -23,5 +23,10 @@ namespace SmartH2_Alarm
         {
             string promptValue = Prompt.ShowDialog("Insira novo IP", "Options");
         }
+
+        private void Form_Alarms_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
