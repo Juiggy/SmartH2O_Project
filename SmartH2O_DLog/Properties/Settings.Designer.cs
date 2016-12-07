@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartH2O_Data_Uploader.Properties {
+namespace SmartH2O_DLog.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -32,18 +32,6 @@ namespace SmartH2O_Data_Uploader.Properties {
             }
             set {
                 this["brokerIP"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public int sensorTime {
-            get {
-                return ((int)(this["sensorTime"]));
-            }
-            set {
-                this["sensorTime"] = value;
             }
         }
     }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareOrganizationSmartH2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2_Alarm", "SmartH2_Alarm\SmartH2_Alarm.csproj", "{F774861D-81CC-4447-A4F9-FC8CCDAE65CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_DLog", "SmartH2O_DLog\SmartH2O_DLog.csproj", "{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F774861D-81CC-4447-A4F9-FC8CCDAE65CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F774861D-81CC-4447-A4F9-FC8CCDAE65CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F774861D-81CC-4447-A4F9-FC8CCDAE65CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
