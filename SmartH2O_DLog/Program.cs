@@ -134,7 +134,25 @@ namespace SmartH2O_DLog
         private static void m_cClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
 
-            Console.WriteLine("Mensagem recebida");
+            Console.WriteLine(DateTime.Now + " - Message Received from: "+e.Topic.ToString()+" | Press ESC to quit");
+            if (e.Topic.Equals("dataSensor")){
+                //criar ficheiro XML a partir da mensagem
+                //validar com schema
+                //validou? chamar método do webservice
+
+
+            }
+            else
+            {
+                if (e.Topic.Equals("dataAlarme"))
+                {
+                    //criar ficheiro XML a partir da mensagem
+                    //validar com schema
+                    //validou? chamar método do webservice
+
+
+                }
+            }
 
 
         }

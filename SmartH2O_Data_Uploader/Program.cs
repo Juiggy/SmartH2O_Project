@@ -58,7 +58,7 @@ namespace SmartH2O_Data_Uploader
                             {
                                 Console.BackgroundColor = ConsoleColor.DarkRed;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("erro a fazer load do schema");
+                                Console.WriteLine("error loading schema");
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
@@ -74,7 +74,7 @@ namespace SmartH2O_Data_Uploader
                                 {
                                     Console.BackgroundColor = ConsoleColor.DarkRed;
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    Console.WriteLine("erro a fazer ligacao ao broker - IP incorrecto");
+                                    Console.WriteLine("error connecting with broker");
                                     Console.ReadKey();
                                     Environment.Exit(1);
                                 }
@@ -98,7 +98,7 @@ namespace SmartH2O_Data_Uploader
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine("erro a enviar mensagem");
+                                Console.WriteLine("cannot send message");
                                 Console.WriteLine(e);
                                 Console.ReadKey();
                                 Environment.Exit(1);
@@ -201,7 +201,7 @@ namespace SmartH2O_Data_Uploader
         private static void m_cClient_MsgPublished(object sender, MqttMsgPublishedEventArgs e)
         {
             if (!auxFlag)
-                Console.WriteLine("Mensagem Publicada");
+                Console.WriteLine(DateTime.Now + " - Message Send | Program is running... | Press ESC to quit");
         }
 
         //metodo retirado do Stackoverflow
