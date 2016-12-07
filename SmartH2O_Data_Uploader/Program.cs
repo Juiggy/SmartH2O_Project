@@ -67,7 +67,7 @@ namespace SmartH2O_Data_Uploader
                                 try
                                 {
                                     aux_m_cClient = false;
-                                    m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                                    m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP);
                                     m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
                                 }
                                 catch (Exception e)
@@ -100,6 +100,8 @@ namespace SmartH2O_Data_Uploader
                             {
                                 Console.WriteLine("erro a enviar mensagem");
                                 Console.WriteLine(e);
+                                Console.ReadKey();
+                                Environment.Exit(1);
                             }
 
                             Console.Clear();
@@ -132,13 +134,13 @@ namespace SmartH2O_Data_Uploader
                     case 3:
                         {
                             Console.Clear();
-                            Console.WriteLine("Brokers IP: " + SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                            Console.WriteLine("Brokers IP: " + SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP);
                             Console.Write("\nSet the new IP for the Broker: ");
                             string broker = Console.ReadLine();
 
                             if (ValidateIPv4(broker))
                             {
-                                SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP = broker;
+                                SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP = broker;
                                 SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
                             }
                             else
@@ -203,7 +205,7 @@ namespace SmartH2O_Data_Uploader
                 Console.WriteLine("Mensagem Publicada");
         }
 
-        //metodos da interwebs
+        //metodo retirado do Stackoverflow
         private static bool ValidateIPv4(string ipString)
         {
             if (String.IsNullOrWhiteSpace(ipString))
