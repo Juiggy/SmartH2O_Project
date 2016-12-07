@@ -103,7 +103,6 @@ namespace SmartH2O_Data_Uploader
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
-
                             Console.Clear();
                         }
                         break;
