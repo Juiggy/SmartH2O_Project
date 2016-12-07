@@ -15,9 +15,9 @@ using System.Net;
 namespace SmartH2O_Data_Uploader
 {
     class Program
-    {     
+    {
         //nao houve erros, publico mensagem
-        static MqttClient m_cClient; 
+        static MqttClient m_cClient;
         static XmlSchemaSet schema = new XmlSchemaSet();
         string[] m_strTopicsInfo = { "dataSensor" };
         static SensorNodeDll.SensorNodeDll dll;
@@ -29,7 +29,7 @@ namespace SmartH2O_Data_Uploader
             int option;
 
             int delay = SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime;
-            //SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP
+            
 
             do
             {
@@ -58,36 +58,36 @@ namespace SmartH2O_Data_Uploader
                             {
                                 Console.BackgroundColor = ConsoleColor.DarkRed;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("erro a fazer load do schema");
+                                Console.WriteLine("error loading schema");
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
                             // tenho de verificar se o m_cClient já existe
-                            if(aux_m_cClient)
+                            if (aux_m_cClient)
                                 try
                                 {
                                     aux_m_cClient = false;
-                                    m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                                    m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP);
                                     m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
                                 }
-                                catch( Exception e)
+                                catch (Exception e)
                                 {
                                     Console.BackgroundColor = ConsoleColor.DarkRed;
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    Console.WriteLine("erro a fazer ligacao ao broker - IP incorrecto");
+                                    Console.WriteLine("error connecting with broker");
                                     Console.ReadKey();
                                     Environment.Exit(1);
-                                }                                                                        
+                                }
                             try
                             {
-                                                              
+
                                 if (!m_cClient.IsConnected)
                                 {
                                     m_cClient.Connect(Guid.NewGuid().ToString());
-                                    
+
                                 }
                                 Console.WriteLine("Press ESC to quit\n---------------------------------");
-                                auxFlag = false;                            
+                                auxFlag = false;
                                 dll.Initialize(sendData, delay);
                                 do
                                 {
@@ -98,10 +98,11 @@ namespace SmartH2O_Data_Uploader
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine("erro a enviar mensagem");
+                                Console.WriteLine("cannot send message");
                                 Console.WriteLine(e);
+                                Console.ReadKey();
+                                Environment.Exit(1);
                             }
-
                             Console.Clear();
                         }
                         break;
@@ -111,29 +112,41 @@ namespace SmartH2O_Data_Uploader
                             //ponderar passar a mostrar valor em segundo e ler em segundos - tlv minutos! falar com colegas
                             Console.WriteLine("Delay Time value (ms): " + delay.ToString());
                             Console.Write("\nSet new Delay time (ms): ");
-                            delay = Int32.Parse(Console.ReadLine());
+                            //verificar se o que foi escrito é numerico
+                            int value;
+                            string delayString = Console.ReadLine();
+                            if (int.TryParse(delayString, out value))
+                                delay = Int32.Parse(delayString);
+                            else
+                            {
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("\n\n" + delayString + " is not a valid value");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                            }
                             //guardar valor delay do ecra
-                            SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime=delay;
+                            SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime = delay;
                             SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
                         }
                         break;
                     case 3:
                         {
                             Console.Clear();
-                            Console.WriteLine("Brokers IP: " + SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP);
+                            Console.WriteLine("Brokers IP: " + SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP);
                             Console.Write("\nSet the new IP for the Broker: ");
                             string broker = Console.ReadLine();
-                            
+
                             if (ValidateIPv4(broker))
                             {
-                                SmartH2O_Data_Uploader.Properties.Settings.Default.BrokerIP = broker;
+                                SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP = broker;
                                 SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.DarkRed;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("\n\n"+broker +" is not a valid IP");
+                                Console.WriteLine("\n\n" + broker + " is not a valid IP");
                                 Console.ResetColor();
                                 Console.ReadKey();
                             }
@@ -141,30 +154,32 @@ namespace SmartH2O_Data_Uploader
                         break;
                     case 0:
                         {
-                            Environment.Exit(0);
-
+                            Console.Clear();
+                            Console.WriteLine("\nThank you for using our program");
+                            Console.ReadKey();
+                            //fazer uma mensagem para sair
                         }
                         break;
                 }
-
             }
-            while (option != 0);          
+            while (option != 0);
+            Environment.Exit(0);
         }
 
 
 
         private static void sendData(string str)
-            
+
         {
             //crio um objecto SensorData com os valores correctos
             SensorData sensorData = new SensorData(str);
 
             //chamo metodo que devolve os dados do objecto em XML
             XmlDocument sensorXML = sensorData.getDataInXML();
-            
+
             bool validationErrors = false;
             sensorXML.Schemas.Add(schema);
-           
+
             sensorXML.Validate((s, e) =>
                 {
                     //Apresento mensagem de erro por o XML nao ser valido
@@ -172,24 +187,24 @@ namespace SmartH2O_Data_Uploader
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(e.Message);
                     validationErrors = true;
-                    Console.ResetColor(); 
+                    Console.ResetColor();
                 });
-                              
-                //publico o XML devidamente validado - Mosquitto
+
+            //publico o XML devidamente validado - Mosquitto
             if (!validationErrors)
             {
-                 string xmlOutput = sensorXML.OuterXml;
-                 m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2,true);
-            }         
+                string xmlOutput = sensorXML.OuterXml;
+                m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2, true);
+            }
         }
 
         private static void m_cClient_MsgPublished(object sender, MqttMsgPublishedEventArgs e)
         {
             if (!auxFlag)
-                Console.WriteLine("Mensagem Publicada");
+                Console.WriteLine(DateTime.Now + " - Message Send | Program is running... | Press ESC to quit");
         }
 
-        //metodos da interwebs
+        //metodo retirado do Stackoverflow
         private static bool ValidateIPv4(string ipString)
         {
             if (String.IsNullOrWhiteSpace(ipString))
