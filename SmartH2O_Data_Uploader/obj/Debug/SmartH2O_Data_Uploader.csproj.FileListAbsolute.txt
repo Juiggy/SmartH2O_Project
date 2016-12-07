@@ -1,0 +1,22 @@
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe.config
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.pdb
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SensorNodeDll.dll
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.csprojResolveAssemblyReference.cache
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.exe
+c:\users\juigg_000\documents\visual studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.pdb
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.dll
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe.config
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.dll
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.dll
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.exe
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Data_Uploader\bin\Debug\SensorNodeDll.dll

@@ -1,0 +1,13 @@
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.csprojResolveAssemblyReference.cache
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\juigg_000\Documents\Visual Studio 2013\Projects\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.pdb
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.dll
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.dll
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.pdb
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.dll.config
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.dll
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.pdb
+D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.csprojResolveAssemblyReference.cache
