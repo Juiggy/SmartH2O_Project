@@ -11,3 +11,11 @@ D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSma
 D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.dll
 D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.pdb
 D:\IS\SmartH2O_DU\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.csprojResolveAssemblyReference.cache
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.dll.config
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.dll
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.pdb
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.csprojResolveAssemblyReference.cache
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.pdb
