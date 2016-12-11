@@ -10,7 +10,7 @@ namespace SmartH2O_Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface ISmartH2O_Service
+    public interface ISmartH2O_Service1
     {
 
         [OperationContract]

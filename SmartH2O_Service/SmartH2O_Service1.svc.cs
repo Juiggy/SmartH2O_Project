@@ -10,7 +10,7 @@ namespace SmartH2O_Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-    public class SmartH2O_Service : ISmartH2O_Service
+    public class Service1 : ISmartH2O_Service1
     {
         public string GetData(int value)
         {

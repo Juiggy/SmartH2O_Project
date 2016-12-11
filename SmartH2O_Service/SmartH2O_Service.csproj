@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{569A8B90-FD6C-47A5-A51D-B1B2438DAF56}</ProjectGuid>
+    <ProjectGuid>{49894853-D2BD-4612-AC78-252F00967C8D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -91,14 +91,16 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="SmartH2O_Service.svc" />
-    <Content Include="Web.config" />
+    <Content Include="SmartH2O_Service1.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SmartH2O_Service.svc.cs">
-      <DependentUpon>SmartH2O_Service.svc</DependentUpon>
+    <Compile Include="SmartH2O_Service1.svc.cs">
+      <DependentUpon>SmartH2O_Service1.svc</DependentUpon>
     </Compile>
-    <Compile Include="ISmartH2O_Service.cs" />
+    <Compile Include="ISmartH2O_Service1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,9 +131,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51478</DevelopmentServerPort>
+          <DevelopmentServerPort>58273</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51478/</IISUrl>
+          <IISUrl>http://localhost:58273/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

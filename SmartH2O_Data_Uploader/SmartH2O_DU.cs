@@ -14,7 +14,7 @@ using System.Net;
 
 namespace SmartH2O_Data_Uploader
 {
-    class Program
+    class SmartH2O_DU
     {
         //nao houve erros, publico mensagem
         static MqttClient m_cClient;
@@ -176,7 +176,7 @@ namespace SmartH2O_Data_Uploader
 
             //chamo metodo que devolve os dados do objecto em XML
             XmlDocument sensorXML = sensorData.getDataInXML();
-
+            
             bool validationErrors = false;
             sensorXML.Schemas.Add(schema);
 

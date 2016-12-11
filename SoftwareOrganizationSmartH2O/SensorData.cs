@@ -41,13 +41,12 @@ namespace SoftwareOrganizationSmartH2O
             //set { _id = value; }
         }
 
-        public SensorData(string tipo, string valor)
+        //construir com XML
+        public SensorData(XmlDocument sensorXML)
         {
-            this._type = tipo;
-            valor = valor.Replace(".", ",");
-            this._value = float.Parse(valor);
-            this._id = Guid.NewGuid();
-            this._date = DateTime.Now;
+            
+
+
         }
 
         public SensorData(string sensorValue)

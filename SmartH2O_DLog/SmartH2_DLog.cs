@@ -14,7 +14,7 @@ using System.Net;
 
 namespace SmartH2O_DLog
 {
-    class Program
+    class SmartH2_DLog
     {
         //nao houve erros, publico mensagem
         static MqttClient m_cClient;
@@ -136,10 +136,31 @@ namespace SmartH2O_DLog
 
             Console.WriteLine(DateTime.Now + " - Message Received from: "+e.Topic.ToString()+" | Press ESC to quit");
             if (e.Topic.Equals("dataSensor")){
-                //criar ficheiro XML a partir da mensagem
-                //validar com schema
-                //validou? chamar método do webservice
+                //criar ficheiro XML a partir da mensagem    
+                XmlDocument sensorXML = new XmlDocument();
+                sensorXML.LoadXml(Encoding.UTF8.GetString(e.Message));
 
+
+                //validar com schema
+                bool validationErrors = false;
+                sensorXML.Schemas.Add(schema);
+
+                sensorXML.Validate((s, aux) =>
+                {
+                    //Apresento mensagem de erro por o XML nao ser valido
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(aux.Message);
+                    validationErrors = true;
+                    Console.ResetColor();
+                });
+
+                //validou? chamar método do webservice
+                if (!validationErrors)
+                {
+                    
+
+                }
 
             }
             else

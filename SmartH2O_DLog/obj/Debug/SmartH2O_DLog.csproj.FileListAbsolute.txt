@@ -14,3 +14,11 @@ C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SmartH2O_DLog\bin\Debug\M2Mq
 C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.csprojResolveAssemblyReference.cache
 C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.exe
 C:\Users\Vilhena\Documents\IS_PROJ\SmartH2O_Project\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.pdb
+D:\IS\SmartH2O\SmartH2O_DLog\bin\Debug\SmartH2O_DLog.exe.config
+D:\IS\SmartH2O\SmartH2O_DLog\bin\Debug\SmartH2O_DLog.exe
+D:\IS\SmartH2O\SmartH2O_DLog\bin\Debug\SmartH2O_DLog.pdb
+D:\IS\SmartH2O\SmartH2O_DLog\bin\Debug\M2Mqtt.Net.dll
+D:\IS\SmartH2O\SmartH2O_DLog\bin\Debug\M2Mqtt.Net.pdb
+D:\IS\SmartH2O\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.exe
+D:\IS\SmartH2O\SmartH2O_DLog\obj\Debug\SmartH2O_DLog.pdb
