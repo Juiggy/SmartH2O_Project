@@ -10,13 +10,16 @@ using uPLibrary.Networking.M2Mqtt.Messages; //lib para Mosquitto
 using System.Xml;
 using System.Xml.Schema;
 using System.IO;
+using SoftwareOrganizationSmartH2O;
 using System.Net;
+using SmartH2O_DLog;
 
 namespace SmartH2O_DLog
 {
     class SmartH2_DLog
     {
-        //nao houve erros, publico mensagem
+        static XmlSchemaSet schemaSensor = new XmlSchemaSet();
+        static XmlSchemaSet schemaAlarm = new XmlSchemaSet();
         static MqttClient m_cClient;
         static void Main(string[] args)
         {
@@ -40,23 +43,34 @@ namespace SmartH2O_DLog
                     case 1:
                         {
                             //para fazer apenas uma vez
-                            if (aux_m_cClient)
-                            {
-
-                            
                             try
                             {
-                                    aux_m_cClient = false;
-                                    m_cClient = new MqttClient(SmartH2O_DLog.Properties.Settings.Default.brokerIP);
-
-
-                            } catch(Exception e)
+                                string schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\XMLSensorDataMsgSchema.xsd";
+                                schemaSensor.Add("", schemaPath);
+                            }
+                            catch (Exception e)
                             {
-                                Console.Clear();
-                                Console.WriteLine("Cannot connect to broker");
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("error loading schema for Data Sensor");
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
+                            if (aux_m_cClient)
+                            {
+                                try
+                                {
+                                        aux_m_cClient = false;
+                                        m_cClient = new MqttClient(SmartH2O_DLog.Properties.Settings.Default.brokerIP);
+
+
+                                } catch(Exception e)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Cannot connect to broker");
+                                    Console.ReadKey();
+                                    Environment.Exit(1);
+                                }
                             }
 
                             m_cClient.MqttMsgPublishReceived += m_cClient_MqttMsgPublishReceived;
@@ -83,8 +97,6 @@ namespace SmartH2O_DLog
                             do
                             {
                                 //para a janela ate clicar ESC
-
-
                             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
                             m_cClient.MqttMsgPublishReceived -= m_cClient_MqttMsgPublishReceived;
@@ -104,6 +116,15 @@ namespace SmartH2O_DLog
 
                             if (ValidateIPv4(broker))
                             {
+                                if (!aux_m_cClient)
+                                {
+                                    aux_m_cClient = true;
+                                    if (m_cClient.IsConnected)
+                                    {
+                                        m_cClient.Disconnect();
+                                    }
+
+                                }
                                 SmartH2O_DLog.Properties.Settings.Default.brokerIP = broker;
                                 SmartH2O_DLog.Properties.Settings.Default.Save();
                             }
@@ -135,17 +156,20 @@ namespace SmartH2O_DLog
         {
 
             Console.WriteLine(DateTime.Now + " - Message Received from: "+e.Topic.ToString()+" | Press ESC to quit");
+            //criar ficheiro XML a partir da mensagem    
+            XmlDocument documentoXML = new XmlDocument();
+            documentoXML.LoadXml(Encoding.UTF8.GetString(e.Message));
+
             if (e.Topic.Equals("dataSensor")){
-                //criar ficheiro XML a partir da mensagem    
-                XmlDocument sensorXML = new XmlDocument();
-                sensorXML.LoadXml(Encoding.UTF8.GetString(e.Message));
+
+
 
 
                 //validar com schema
                 bool validationErrors = false;
-                sensorXML.Schemas.Add(schema);
+                documentoXML.Schemas.Add(schemaSensor);
 
-                sensorXML.Validate((s, aux) =>
+                documentoXML.Validate((s, aux) =>
                 {
                     //Apresento mensagem de erro por o XML nao ser valido
                     Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -158,8 +182,11 @@ namespace SmartH2O_DLog
                 //validou? chamar método do webservice
                 if (!validationErrors)
                 {
-                    
+                    //cria um objecto com o xml
+                    SensorData aux = new SensorData(documentoXML);
 
+                    //chamo o metodo do webservice para guardar estes valores
+                    
                 }
 
             }
@@ -167,21 +194,18 @@ namespace SmartH2O_DLog
             {
                 if (e.Topic.Equals("dataAlarme"))
                 {
-                    //criar ficheiro XML a partir da mensagem
+
                     //validar com schema
                     //validou? chamar método do webservice
 
 
                 }
             }
-
-
         }
-
 
         //metodo retirado do stackoverflow
         private static bool ValidateIPv4(string ipString)
-    {
+        {
         if (String.IsNullOrWhiteSpace(ipString))
         {
             return false;
@@ -196,7 +220,7 @@ namespace SmartH2O_DLog
         byte tempForParsing;
 
         return splitValues.All(r => byte.TryParse(r, out tempForParsing));
-    }
+        }
 
 
     }

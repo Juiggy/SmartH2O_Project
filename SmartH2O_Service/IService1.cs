@@ -5,12 +5,13 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using SoftwareOrganizationSmartH2O;
 
 namespace SmartH2O_Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface ISmartH2O_Service1
+    public interface IService1
     {
 
         [OperationContract]
@@ -20,6 +21,8 @@ namespace SmartH2O_Service
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        [OperationContract]
+        int WriteDataSensor(SensorData sensorData);
     }
 
 
@@ -43,5 +46,10 @@ namespace SmartH2O_Service
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+    [DataContract]
+    public class SensorData
+    {
+
     }
 }

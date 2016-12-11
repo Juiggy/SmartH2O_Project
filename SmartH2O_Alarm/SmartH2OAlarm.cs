@@ -43,8 +43,17 @@ namespace SmartH2O_Alarm
                             Console.Write("\nSet the new IP for the Broker: ");
                             string broker = Console.ReadLine();
 
-                            if (ValidateIPv4(broker))
+                        /*    if (ValidateIPv4(broker))
                             {
+                                if (!aux_m_cClient)
+                                {
+                                    aux_m_cClient = true;
+                                    if (m_cClient.IsConnected)
+                                    {
+                                        m_cClient.Disconnect();
+                                    }
+
+                                }
                                 SmartH2O_Alarm.Properties.Settings.Default.brokerIP = broker;
                                 SmartH2O_Alarm.Properties.Settings.Default.Save();
                             }
@@ -55,7 +64,7 @@ namespace SmartH2O_Alarm
                                 Console.WriteLine("\n\n" + broker + " is not a valid IP");
                                 Console.ResetColor();
                                 Console.ReadKey();
-                            }
+                            }*/
                         }
                         break;
                     case 0:

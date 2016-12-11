@@ -45,7 +45,14 @@ namespace SoftwareOrganizationSmartH2O
         public SensorData(XmlDocument sensorXML)
         {
             
+            
+            this._type = sensorXML.SelectSingleNode("/sensor/type").InnerText; 
 
+            this._id = Guid.Parse( sensorXML.SelectSingleNode("/sensor/id").InnerText);
+            this._date = DateTime.Parse(sensorXML.SelectSingleNode("/sensor/date").InnerText);
+            string valor = (sensorXML.SelectSingleNode("/sensor/value").InnerText);
+            valor = valor.Replace(".", ",");
+            this._value = float.Parse(valor);
 
         }
 

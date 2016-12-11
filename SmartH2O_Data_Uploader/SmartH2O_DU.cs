@@ -29,7 +29,6 @@ namespace SmartH2O_Data_Uploader
             int option;
 
             int delay = SmartH2O_Data_Uploader.Properties.Settings.Default.sensorTime;
-            
 
             do
             {
@@ -139,7 +138,16 @@ namespace SmartH2O_Data_Uploader
 
                             if (ValidateIPv4(broker))
                             {
-                                SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP = broker;
+                                if (!aux_m_cClient)
+                                {
+                                    aux_m_cClient = true;
+                                    if (m_cClient.IsConnected)
+                                    {
+                                        m_cClient.Disconnect();
+                                    }
+                                }
+
+                                    SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP = broker;
                                 SmartH2O_Data_Uploader.Properties.Settings.Default.Save();
                             }
                             else
