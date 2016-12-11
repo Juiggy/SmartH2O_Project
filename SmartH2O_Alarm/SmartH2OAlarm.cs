@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using uPLibrary.Networking.M2Mqtt; //lib para Mosquitto
+using uPLibrary.Networking.M2Mqtt.Messages; //lib para Mosquitto
 
 namespace SmartH2O_Alarm
 {
     class SmartH2OAlarm
     {
+        static MqttClient m_cClient;
         static void Main(string[] args)
         {
+        
             //MENU
             int option;
 
