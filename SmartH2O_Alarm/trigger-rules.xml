@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<alarmDetails>
+  <alarm>
+    <parameter>pH</parameter>
+    <condition>active</condition>
+    <minValue>2</minValue>
+    <maxValue>8</maxValue>
+  </alarm>
+  <alarm>
+    <parameter>ammonia</parameter>
+    <condition>desactive</condition>
+    <minValue>2,58</minValue>
+    <maxValue>5,46</maxValue>
+  </alarm>
+</alarmDetails>
