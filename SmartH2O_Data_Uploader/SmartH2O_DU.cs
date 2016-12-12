@@ -67,7 +67,7 @@ namespace SmartH2O_Data_Uploader
                                 {
                                     aux_m_cClient = false;
                                     m_cClient = new MqttClient(SmartH2O_Data_Uploader.Properties.Settings.Default.brokerIP);
-                                    m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
+                                    
                                 }
                                 catch (Exception e)
                                 {
@@ -87,6 +87,7 @@ namespace SmartH2O_Data_Uploader
                                 }
                                 Console.WriteLine("Press ESC to quit\n---------------------------------");
                                 auxFlag = false;
+                                m_cClient.MqttMsgPublished += m_cClient_MsgPublished;
                                 dll.Initialize(sendData, delay);
                                 do
                                 {
@@ -102,6 +103,7 @@ namespace SmartH2O_Data_Uploader
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
+                            m_cClient.MqttMsgPublished -= m_cClient_MsgPublished;
                             Console.Clear();
                         }
                         break;
