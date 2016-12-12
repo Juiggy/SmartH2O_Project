@@ -32,3 +32,6 @@ C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O
 C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\SoftwareOrganizationSmartH2O.pdb
 C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.dll
 C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.pdb
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.dll
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\bin\Debug\M2Mqtt.Net.pdb
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SoftwareOrganizationSmartH2O\obj\Debug\SoftwareOrganizationSmartH2O.csprojResolveAssemblyReference.cache

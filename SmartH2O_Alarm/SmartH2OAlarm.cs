@@ -54,10 +54,10 @@ namespace SmartH2O_Alarm
                             }
                             try
                             {
-                                string schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\XMLSensorDataMsgSchema.xsd";
+                                string schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\triiger-rules.xsd";
 
 
-                                //falta fazer schema para os alarmes
+                                //schema alarmes feito as trigger-rules.xmd
 
                        
 
@@ -110,6 +110,8 @@ namespace SmartH2O_Alarm
                     case 2:
                         {
                             //check alarms
+
+                            
                         }
                         break;
                     case 3:

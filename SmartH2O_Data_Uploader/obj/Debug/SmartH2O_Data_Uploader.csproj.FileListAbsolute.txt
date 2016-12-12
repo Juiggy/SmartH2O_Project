@@ -44,3 +44,12 @@ D:\IS\SmartH2O\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.exe
 D:\IS\SmartH2O\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.pdb
 C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.csprojResolveAssemblyReference.cache
 C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe.config
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.exe
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SmartH2O_Data_Uploader.pdb
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.dll
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SensorNodeDll.dll
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.dll
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\SoftwareOrganizationSmartH2O.pdb
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\bin\Debug\M2Mqtt.Net.pdb
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.exe
+C:\Users\Vilhena\Documents\PROJ_IS\SmartH2O_Project\SmartH2O_Data_Uploader\obj\Debug\SmartH2O_Data_Uploader.pdb
