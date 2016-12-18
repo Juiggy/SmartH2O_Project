@@ -59,7 +59,7 @@ namespace SmartH2O_Alarm
 
                                 //schema alarmes feito as trigger-rules.xmd
 
-                       
+                   
 
                                 schemaAlarm.Add("", schemaPath);
                             }
@@ -161,7 +161,57 @@ namespace SmartH2O_Alarm
 
         private static void m_cClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            throw new NotImplementedException();
+
+            XmlDocument sensorXML = new XmlDocument();
+            sensorXML.LoadXml(Encoding.UTF8.GetString(e.Message));
+
+            sensorXML.Schemas.Add(schemaSensor);
+
+
+            bool validationErrors = false;
+            sensorXML.Validate((s, aux) =>
+            {
+                //Apresento mensagem de erro por o XML nao ser valido
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(aux.Message);
+                validationErrors = true;
+                Console.ResetColor();
+            });
+
+
+            if (!validationErrors)
+            {
+             checkForAlarm(sensorXML);
+            }
+
+                //throw new NotImplementedException();
+            }
+
+        private static void checkForAlarm(XmlDocument sensorXML)
+        {
+
+            XmlDocument alarmXML = new XmlDocument();
+            XmlDocument triggerXML = new XmlDocument();
+            triggerXML.LoadXml(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\trigger-rules.xml");
+
+            XmlNode root = triggerXML.DocumentElement;
+            XmlNodeList nodeList = root.SelectNodes("//ALARM[ID="+sensorXML.SelectSingleNode("/sensor/idSensor").InnerText+"]");
+
+
+            foreach(XmlNode alarm in nodeList)
+            {
+                /*   if(bool.Parse( alarm.SelectSingleNode("/CONDITION").InnerText) == true)
+                  {
+
+                   }*/
+
+                if (int.Parse(alarm.SelectSingleNode("/ID").) == null)
+                {
+
+                }
+            }
+           // throw new NotImplementedException();
         }
 
         private static void m_cClient_MsgPublished(object sender, MqttMsgPublishedEventArgs e)

@@ -6,8 +6,10 @@
         <xs:element maxOccurs="unbounded" name="ALARM">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PARAMETER" type="xs:string" />
-              <xs:element name="ID" type="xs:integer" minOccurs ="0"/>
+              <xs:choice>
+                <xs:element name="PARAMETER" type="xs:string" />
+                <xs:element name="ID" type="xs:integer"/>
+              </xs:choice>
               <xs:element name="CONDITION" type="xs:boolean" />
               <xs:element name="VALUE" type="xs:decimal" />
               <xs:element name="VALUE2" type="xs:decimal" minOccurs="0" />
