@@ -10,9 +10,8 @@ using uPLibrary.Networking.M2Mqtt.Messages; //lib para Mosquitto
 using System.Xml;
 using System.Xml.Schema;
 using System.IO;
-using SoftwareOrganizationSmartH2O;
 using System.Net;
-using SmartH2O_DLog;
+using SmartH2O_DLog.SmartH2O_Service;
 
 namespace SmartH2O_DLog
 {
@@ -182,11 +181,27 @@ namespace SmartH2O_DLog
                 //validou? chamar método do webservice
                 if (!validationErrors)
                 {
-                    //cria um objecto com o xml
-                    SensorData aux = new SensorData(documentoXML);
+
 
                     //chamo o metodo do webservice para guardar estes valores
-                    
+                    try {
+                        Service1Client serv = new Service1Client();
+                        string auxWebServWriteDataSensor = serv.WriteDataSensor(Encoding.UTF8.GetString(e.Message));
+                        if (auxWebServWriteDataSensor.Equals("0"))
+                        {
+                            Console.WriteLine("Dados guardados");
+                        }
+                    }
+                    catch(Exception ea)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Error Connecting with WebServer\nApplication will close");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Environment.Exit(1);
+                    }
+
                 }
 
             }

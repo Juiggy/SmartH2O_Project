@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using SoftwareOrganizationSmartH2O; //lib SoftwareOrganization
 using uPLibrary.Networking.M2Mqtt; //lib para Mosquitto
 using uPLibrary.Networking.M2Mqtt.Messages; //lib para Mosquitto
 using System.Xml;
 using System.Xml.Schema;
 using System.IO;
 using System.Net;
+using System.Globalization;
 
 namespace SmartH2O_Data_Uploader
 {
@@ -181,11 +181,11 @@ namespace SmartH2O_Data_Uploader
         private static void sendData(string str)
 
         {
-            //crio um objecto SensorData com os valores correctos
-            SensorData sensorData = new SensorData(str);
+           
+           
 
             //chamo metodo que devolve os dados do objecto em XML
-            XmlDocument sensorXML = sensorData.getDataInXML();
+            XmlDocument sensorXML = getDataInXML(str);
             
             bool validationErrors = false;
             sensorXML.Schemas.Add(schema);
@@ -206,6 +206,35 @@ namespace SmartH2O_Data_Uploader
                 string xmlOutput = sensorXML.OuterXml;
                 m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2, true);
             }
+        }
+
+        private static XmlDocument getDataInXML(string str)
+        {
+            XmlDocument doc = new XmlDocument();
+            String[] sensorValues = str.Split(';');
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            doc.AppendChild(dec);
+            XmlElement sensor = doc.CreateElement("sensor");
+            doc.AppendChild(sensor);
+            XmlElement idMessage = doc.CreateElement("idMessage");
+            idMessage.InnerText = Guid.NewGuid().ToString();
+            XmlElement idSensor = doc.CreateElement("idSensor");
+            idSensor.InnerText = sensorValues[0];
+            XmlElement tipo = doc.CreateElement("type");
+            tipo.InnerText = sensorValues[1];
+            XmlElement date = doc.CreateElement("date");
+            date.InnerText = DateTime.Now.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            XmlElement time = doc.CreateElement("time");
+            time.InnerText = DateTime.Now.TimeOfDay.ToString();
+            XmlElement value = doc.CreateElement("value");
+            value.InnerText = sensorValues[2];
+            sensor.AppendChild(idMessage);
+            sensor.AppendChild(idSensor);
+            sensor.AppendChild(tipo);          
+            sensor.AppendChild(date);
+            sensor.AppendChild(time);
+            sensor.AppendChild(value);
+            return doc;
         }
 
         private static void m_cClient_MsgPublished(object sender, MqttMsgPublishedEventArgs e)

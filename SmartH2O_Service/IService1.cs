@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using SoftwareOrganizationSmartH2O;
+using System.Xml;
 
 namespace SmartH2O_Service
 {
@@ -22,7 +22,8 @@ namespace SmartH2O_Service
 
         // TODO: Add your service operations here
         [OperationContract]
-        int WriteDataSensor(SensorData sensorData);
+        string WriteDataSensor(string strMsg);
+
     }
 
 
@@ -47,9 +48,5 @@ namespace SmartH2O_Service
             set { stringValue = value; }
         }
     }
-    [DataContract]
-    public class SensorData
-    {
-
-    }
+    
 }
