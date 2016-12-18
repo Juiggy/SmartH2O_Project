@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ALARMDETAILS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="ALARM">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PARAMETER" type="xs:string" />
+              <xs:element name="ID" type="xs:integer" minOccurs ="0"/>
+              <xs:element name="CONDITION" type="xs:boolean" />
+              <xs:element name="VALUE" type="xs:decimal" />
+              <xs:element name="VALUE2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OPERATION" type="xs:string" />
+              <xs:element name="MESSAGE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
