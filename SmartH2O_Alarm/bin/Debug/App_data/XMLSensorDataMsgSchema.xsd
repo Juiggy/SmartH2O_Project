@@ -8,8 +8,8 @@
         <xs:element name="idMessage" type="xs:string" />
         <xs:element name="idSensor" type="xs:string" />
         <xs:element name="type" type="xs:string" />
-        <xs:element name="date" type="xs:string" />
-        <xs:element name="time" type="xs:string" />
+        <xs:element name="date" type="xs:date" />
+        <xs:element name="time" type="xs:time" />
         <xs:element name="value" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
