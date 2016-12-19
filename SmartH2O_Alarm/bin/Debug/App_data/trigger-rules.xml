@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ALARMDETAILS>
+  <ALARM>
+    <ID>1</ID>
+    <CONDITION>false</CONDITION>
+    <VALUE>2</VALUE>
+    <VALUE2>8</VALUE2>
+    <OPERATION></OPERATION>
+    <MESSAGE></MESSAGE>
+  </ALARM>
+ 
+</ALARMDETAILS>
