@@ -1,12 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ALARMDETAILS>
+﻿<ALARMDETAILS>
   <ALARM>
     <ID>1</ID>
-    <CONDITION>false</CONDITION>
+    <CONDITION>true</CONDITION>
     <VALUE>2</VALUE>
     <VALUE2>8</VALUE2>
-    <OPERATION></OPERATION>
-    <MESSAGE></MESSAGE>
+    <OPERATION>between</OPERATION>
+    <MESSAGE>Value sensor 1 not in acceptable range - between 2 a 8</MESSAGE>
   </ALARM>
- 
+  <ALARM>
+    <PARAMETER>CI2</PARAMETER>
+    <CONDITION>true</CONDITION>
+    <VALUE>3</VALUE>
+    <OPERATION>less than</OPERATION>
+    <MESSAGE>CI2 less than 3/MESSAGE>
+  </ALARM>
+  <ALARM>
+    <PARAMETER>PH</PARAMETER>
+    <CONDITION>true</CONDITION>
+    <VALUE>9</VALUE>
+    <OPERATION>greater than</OPERATION>
+    <MESSAGE>PH greater than 9</MESSAGE>
+  </ALARM>
 </ALARMDETAILS>
