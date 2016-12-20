@@ -2,7 +2,7 @@
 <xs:schema id="XMLSensorDataMsgSchema" attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="sensor">
+  <xs:element name="parameter">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="idMessage" type="xs:string" />

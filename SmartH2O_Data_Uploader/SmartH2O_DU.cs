@@ -204,7 +204,7 @@ namespace SmartH2O_Data_Uploader
             if (!validationErrors)
             {
                 string xmlOutput = sensorXML.OuterXml;
-                m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2, true);
+                m_cClient.Publish("dataSensor", Encoding.UTF8.GetBytes(xmlOutput), 2, false);
             }
         }
 
@@ -214,7 +214,7 @@ namespace SmartH2O_Data_Uploader
             String[] sensorValues = str.Split(';');
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             doc.AppendChild(dec);
-            XmlElement sensor = doc.CreateElement("sensor");
+            XmlElement sensor = doc.CreateElement("parameter");
             doc.AppendChild(sensor);
             XmlElement idMessage = doc.CreateElement("idMessage");
             idMessage.InnerText = Guid.NewGuid().ToString();

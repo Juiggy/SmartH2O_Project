@@ -52,8 +52,6 @@ namespace SmartH2O_Service
                     return "Error with loading schema"; // erro com schema
             }
             bool validationErrors = false;
-            try
-            {
                 XmlDocument xmlMsg = new XmlDocument();
                 xmlMsg.LoadXml(strMsg);
                 xmlMsg.Schemas.Add(schema);
@@ -62,12 +60,7 @@ namespace SmartH2O_Service
                     //Apresento mensagem de erro por o XML nao ser valido
                     validationErrors = true;
                 });
-            }
-            catch(Exception e)
-            {
-                
-               return "error validating"; //erro a integrar schema e a validar
-            }
+
             if (validationErrors)
                 return "XML message not valid"; //mensagem xml nao valida
             else
@@ -78,11 +71,20 @@ namespace SmartH2O_Service
                 {
                     //cria ficheiro
                     XmlDocument doc = new XmlDocument();
-                    XmlElement parameters = doc.CreateElement("Parameters");
+                    XmlElement parameters = doc.CreateElement("parameters");
                     doc.AppendChild(parameters);
                     doc.Save(strPathXMLSensorFile);
                 }
+                //tenho de fazer append dos dados
+                XmlDocument docSensor = new XmlDocument();
+                docSensor.Load(strPathXMLSensorFile);
 
+                XmlNode root = docSensor.DocumentElement;
+                
+
+                root.AppendChild(docSensor.ImportNode(xmlMsg.DocumentElement,true));
+
+                docSensor.Save(strPathXMLSensorFile);
             }
 
 

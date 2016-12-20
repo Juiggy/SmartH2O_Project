@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_Data_Uploader", "SmartH2O_Data_Uploader\SmartH2O_Data_Uploader.csproj", "{05FB9BF1-2AB2-43CE-9B46-C56DD517E85C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareOrganizationSmartH2O", "SoftwareOrganizationSmartH2O\SoftwareOrganizationSmartH2O.csproj", "{F21BA86A-9D86-47D7-A346-74BDC5DF0CC3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_DLog", "SmartH2O_DLog\SmartH2O_DLog.csproj", "{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}"
 	ProjectSection(ProjectDependencies) = postProject
 		{948081D1-54E7-4C9F-BB16-9855C90AA8E3} = {948081D1-54E7-4C9F-BB16-9855C90AA8E3}
@@ -26,10 +24,6 @@ Global
 		{05FB9BF1-2AB2-43CE-9B46-C56DD517E85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05FB9BF1-2AB2-43CE-9B46-C56DD517E85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05FB9BF1-2AB2-43CE-9B46-C56DD517E85C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F21BA86A-9D86-47D7-A346-74BDC5DF0CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F21BA86A-9D86-47D7-A346-74BDC5DF0CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F21BA86A-9D86-47D7-A346-74BDC5DF0CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F21BA86A-9D86-47D7-A346-74BDC5DF0CC3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E0CE3F0-0BBB-4298-B420-E6EF5C492EED}.Release|Any CPU.ActiveCfg = Release|Any CPU

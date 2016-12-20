@@ -69,12 +69,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SoftwareOrganizationSmartH2O\SoftwareOrganizationSmartH2O.csproj">
-      <Project>{f21ba86a-9d86-47d7-a346-74bdc5df0cc3}</Project>
-      <Name>SoftwareOrganizationSmartH2O</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

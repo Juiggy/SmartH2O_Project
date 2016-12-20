@@ -20,12 +20,29 @@ namespace SmartH2O_DLog
         static XmlSchemaSet schemaSensor = new XmlSchemaSet();
         static XmlSchemaSet schemaAlarm = new XmlSchemaSet();
         static MqttClient m_cClient;
+        static Service1Client serv;
         static void Main(string[] args)
         {
             bool aux_m_cClient = true;
             //MENU
             int option;
-            
+
+            try
+            {
+                serv = new Service1Client();
+            }
+            catch (Exception ea)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Error Connecting with WebServer\nApplication will close");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+
+
+
             do
             {
                 Console.Clear();
@@ -81,7 +98,7 @@ namespace SmartH2O_DLog
                                     m_cClient.Connect(Guid.NewGuid().ToString());
                                     string[] topicos = { "dataSensor", "dataAlarme"};
                                  
-                                    byte[] qqos = { 2,2 };
+                                    byte[] qqos = { 2,2 }; 
                                     m_cClient.Subscribe(topicos, qqos);
                                 }
                                 catch(Exception e)
@@ -185,7 +202,7 @@ namespace SmartH2O_DLog
 
                     //chamo o metodo do webservice para guardar estes valores
                     try {
-                        Service1Client serv = new Service1Client();
+
                         string auxWebServWriteDataSensor = serv.WriteDataSensor(Encoding.UTF8.GetString(e.Message));
                         if (auxWebServWriteDataSensor.Equals("0"))
                         {
