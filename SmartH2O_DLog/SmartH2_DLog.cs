@@ -63,12 +63,14 @@ namespace SmartH2O_DLog
                             {
                                 string schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\XMLSensorDataMsgSchema.xsd";
                                 schemaSensor.Add("", schemaPath);
+                                schemaPath = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\XMLAlarmDataMsgSchema.xsd";
+                                schemaAlarm.Add("", schemaPath);
                             }
                             catch (Exception e)
                             {
                                 Console.BackgroundColor = ConsoleColor.DarkRed;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("error loading schema for Data Sensor");
+                                Console.WriteLine("error loading schema for Data Sensor or Data Alarm");
                                 Console.ReadKey();
                                 Environment.Exit(1);
                             }
@@ -96,7 +98,7 @@ namespace SmartH2O_DLog
                                 try
                                 {
                                     m_cClient.Connect(Guid.NewGuid().ToString());
-                                    string[] topicos = { "dataSensor", "dataAlarme"};
+                                    string[] topicos = { "dataSensor", "dataAlarm"};
                                  
                                     byte[] qqos = { 2,2 }; 
                                     m_cClient.Subscribe(topicos, qqos);
@@ -206,7 +208,7 @@ namespace SmartH2O_DLog
                         string auxWebServWriteDataSensor = serv.WriteDataSensor(Encoding.UTF8.GetString(e.Message));
                         if (auxWebServWriteDataSensor.Equals("0"))
                         {
-                            Console.WriteLine("Dados guardados");
+                            Console.WriteLine(DateTime.Now + " - Data was saved | Program is running... | Press ESC to quit");
                         }
                     }
                     catch(Exception ea)
@@ -224,13 +226,49 @@ namespace SmartH2O_DLog
             }
             else
             {
-                if (e.Topic.Equals("dataAlarme"))
+                if (e.Topic.Equals("dataAlarm"))
                 {
 
                     //validar com schema
+                    bool validationErrors = false;
+                    documentoXML.Schemas.Add(schemaAlarm);
+
+                    documentoXML.Validate((s, aux) =>
+                    {
+                        //Apresento mensagem de erro por o XML nao ser valido
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine(aux.Message);
+                        validationErrors = true;
+                        Console.ResetColor();
+                    });
+
                     //validou? chamar método do webservice
+                    if (!validationErrors)
+                    {
 
 
+                        //chamo o metodo do webservice para guardar estes valores
+                        try
+                        {
+
+                            string auxWebServWriteDataSensor = serv.WriteDataAlarm(Encoding.UTF8.GetString(e.Message));
+                            if (auxWebServWriteDataSensor.Equals("0"))
+                            {
+                                Console.WriteLine(DateTime.Now + " - Data was saved | Program is running... | Press ESC to quit");
+                            }
+                        }
+                        catch (Exception ea)
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("Error Connecting with WebServer\nApplication will close");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                            Environment.Exit(1);
+                        }
+
+                    }
                 }
             }
         }

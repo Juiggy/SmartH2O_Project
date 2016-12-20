@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSensorDataMsgSchema" attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="alarm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="idMessage" type="xs:string" />
+        <xs:element name="idSensor" type="xs:string" />
+        <xs:element name="type" type="xs:string" />
+        <xs:element name="date" type="xs:date" />
+        <xs:element name="time" type="xs:time" />
+        <xs:element name="value" type="xs:decimal" />
+        <xs:element name="message" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

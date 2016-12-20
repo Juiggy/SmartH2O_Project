@@ -23,7 +23,8 @@ namespace SmartH2O_Service
         // TODO: Add your service operations here
         [OperationContract]
         string WriteDataSensor(string strMsg);
-
+        [OperationContract]
+        string WriteDataAlarm(string strMsg);
     }
 
 

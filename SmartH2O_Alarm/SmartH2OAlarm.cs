@@ -301,9 +301,9 @@ namespace SmartH2O_Alarm
             {
                 XmlNode root = triggerXML.DocumentElement;
 
-                XmlNodeList nodeList = root.SelectNodes("//ALARM[ID=" + sensorXML.SelectSingleNode("/sensor/idSensor[1]").InnerText + "]");
+                XmlNodeList nodeList = root.SelectNodes("//ALARM[ID=" + sensorXML.SelectSingleNode("/parameter/idSensor[1]").InnerText + "]");
                 checkNodeList(sensorXML, nodeList);
-                XmlNodeList nodeListParameter = root.SelectNodes("//ALARM[PARAMETER='" + sensorXML.SelectSingleNode("/sensor/type[1]").InnerText + "']");
+                XmlNodeList nodeListParameter = root.SelectNodes("//ALARM[PARAMETER='" + sensorXML.SelectSingleNode("/parameter/type[1]").InnerText + "']");
                 checkNodeList(sensorXML, nodeListParameter);
             }
         }
@@ -332,21 +332,21 @@ namespace SmartH2O_Alarm
         {
             foreach (XmlNode alarm in nodeList)
             {
-
-                if (bool.Parse(alarm.SelectSingleNode("./CONDITION").InnerText) == true)
+                //s
+                if (bool.Parse(alarm["CONDITION"].InnerText) == true)
                 {
                     //switch que verifica a condicao. Mediante a condicao, verifica se gera alarme ou nao
                     //decidir se ao fim de um alarme continua a correr as outras regras ou não
 
-                    string valorsensorStr = sensorXML.SelectSingleNode("/sensor/value[1]").InnerText;
+                    string valorsensorStr = sensorXML.SelectSingleNode("/parameter/value").InnerText;
                     valorsensorStr = valorsensorStr.Replace(".", ",");
                     float valorSensor = float.Parse(valorsensorStr);
-                    string valorAlarmStr = alarm.SelectSingleNode("./VALUE").InnerText;
+                    string valorAlarmStr = alarm["VALUE"].InnerText;
                     valorAlarmStr = valorAlarmStr.Replace(".", ",");
                     float valorAlarm = float.Parse(valorAlarmStr);
 
-                    string teste = alarm.SelectSingleNode("./OPERATION").InnerText;
-                    switch (alarm.SelectSingleNode("./OPERATION").InnerText)
+
+                    switch (alarm["OPERATION"].InnerText)
                     {
                         //verifico a condição
                         case "equal":
@@ -372,7 +372,7 @@ namespace SmartH2O_Alarm
                             break;
                         case "between":
 
-                            string valor2AlarmStr = alarm.SelectSingleNode("//VALUE2").InnerText;
+                            string valor2AlarmStr = alarm["VALUE2"].InnerText;
                             valor2AlarmStr = valor2AlarmStr.Replace(".", ",");
                             float valor2Alarm = float.Parse(valor2AlarmStr);
 
@@ -392,10 +392,10 @@ namespace SmartH2O_Alarm
         private static void sendMsgAlarm(XmlNode alarm, XmlDocument sensorXML)
         {
 
-            Console.WriteLine("Sensor: "+sensorXML.SelectSingleNode("/sensor/idSensor[1]").InnerText+" has given an Alarm");
+            Console.WriteLine("Sensor: "+sensorXML.SelectSingleNode("/parameter/idSensor[1]").InnerText+" has given an Alarm");
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(alarm.SelectSingleNode("./MESSAGE").InnerText);
+            Console.WriteLine(alarm["MESSAGE"].InnerText);
             Console.ResetColor();
 
             //criar mensagem para publicar via mosquitto
@@ -405,13 +405,13 @@ namespace SmartH2O_Alarm
 
             //criar ficheiro xml com a mensagem
             XmlDocument docAlarm = new XmlDocument();
-            XmlNode sensorNode = sensorXML.SelectSingleNode("sensor");
+            XmlNode sensorNode = sensorXML.SelectSingleNode("parameter");
             XmlElement alarmMsg = docAlarm.CreateElement("alarm");
             
             alarmMsg.InnerXml = sensorNode.InnerXml;
             docAlarm.AppendChild(alarmMsg);
             XmlElement message = docAlarm.CreateElement("message");
-            message.InnerText = alarm.SelectSingleNode("./MESSAGE").InnerText;
+            message.InnerText = alarm["MESSAGE"].InnerText;
             alarmMsg.AppendChild(message);
 
             //validar com schema

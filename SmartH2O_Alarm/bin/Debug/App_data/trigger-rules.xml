@@ -2,10 +2,10 @@
   <ALARM>
     <ID>1</ID>
     <CONDITION>true</CONDITION>
-    <VALUE>6</VALUE>
-    <VALUE2>8</VALUE2>
+    <VALUE>5</VALUE>
+    <VALUE2>5.9</VALUE2>
     <OPERATION>between</OPERATION>
-    <MESSAGE>Value sensor 1 not in acceptable range - between 6 a 8</MESSAGE>
+    <MESSAGE>Value sensor 1 not in acceptable range - between 5 a 5.9</MESSAGE>
   </ALARM>
   <ALARM>
     <PARAMETER>CI2</PARAMETER>
@@ -17,9 +17,9 @@
   <ALARM>
     <PARAMETER>PH</PARAMETER>
     <CONDITION>true</CONDITION>
-    <VALUE>9</VALUE>
+    <VALUE>6.5</VALUE>
     <OPERATION>greater than</OPERATION>
-    <MESSAGE>PH greater than 9</MESSAGE>
+    <MESSAGE>PH greater than 6.5</MESSAGE>
   </ALARM>
   <ALARM>
     <PARAMETER>NH3</PARAMETER>

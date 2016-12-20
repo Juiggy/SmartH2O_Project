@@ -95,6 +95,12 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/WriteDataSensor", ReplyAction="http://tempuri.org/IService1/WriteDataSensorResponse")]
         System.Threading.Tasks.Task<string> WriteDataSensorAsync(string strMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/WriteDataAlarm", ReplyAction="http://tempuri.org/IService1/WriteDataAlarmResponse")]
+        string WriteDataAlarm(string strMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/WriteDataAlarm", ReplyAction="http://tempuri.org/IService1/WriteDataAlarmResponse")]
+        System.Threading.Tasks.Task<string> WriteDataAlarmAsync(string strMsg);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -146,6 +152,14 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         public System.Threading.Tasks.Task<string> WriteDataSensorAsync(string strMsg) {
             return base.Channel.WriteDataSensorAsync(strMsg);
+        }
+        
+        public string WriteDataAlarm(string strMsg) {
+            return base.Channel.WriteDataAlarm(strMsg);
+        }
+        
+        public System.Threading.Tasks.Task<string> WriteDataAlarmAsync(string strMsg) {
+            return base.Channel.WriteDataAlarmAsync(strMsg);
         }
     }
 }
