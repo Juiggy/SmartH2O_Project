@@ -25,6 +25,10 @@ namespace SmartH2O_Service
         string WriteDataSensor(string strMsg);
         [OperationContract]
         string WriteDataAlarm(string strMsg);
+        [OperationContract]
+        string getDataAlarmXML();
+        [OperationContract]
+        string getDataSensorXML();
     }
 
 

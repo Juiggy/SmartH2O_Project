@@ -31,6 +31,18 @@
   <wsdl:message name="IService1_WriteDataAlarm_OutputMessage">
     <wsdl:part name="parameters" element="tns:WriteDataAlarmResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getDataAlarmXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataAlarmXML" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDataAlarmXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataAlarmXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDataSensorXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDataSensorXML" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getDataSensorXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDataSensorXMLResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="WriteDataAlarm">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/WriteDataAlarm" message="tns:IService1_WriteDataAlarm_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/WriteDataAlarmResponse" message="tns:IService1_WriteDataAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataAlarmXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getDataAlarmXML" message="tns:IService1_getDataAlarmXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getDataAlarmXMLResponse" message="tns:IService1_getDataAlarmXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataSensorXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getDataSensorXML" message="tns:IService1_getDataSensorXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getDataSensorXMLResponse" message="tns:IService1_getDataSensorXML_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="WriteDataAlarm">
       <soap:operation soapAction="http://tempuri.org/IService1/WriteDataAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataAlarmXML">
+      <soap:operation soapAction="http://tempuri.org/IService1/getDataAlarmXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataSensorXML">
+      <soap:operation soapAction="http://tempuri.org/IService1/getDataSensorXML" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

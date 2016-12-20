@@ -101,6 +101,18 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/WriteDataAlarm", ReplyAction="http://tempuri.org/IService1/WriteDataAlarmResponse")]
         System.Threading.Tasks.Task<string> WriteDataAlarmAsync(string strMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getDataAlarmXML", ReplyAction="http://tempuri.org/IService1/getDataAlarmXMLResponse")]
+        string getDataAlarmXML();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getDataAlarmXML", ReplyAction="http://tempuri.org/IService1/getDataAlarmXMLResponse")]
+        System.Threading.Tasks.Task<string> getDataAlarmXMLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getDataSensorXML", ReplyAction="http://tempuri.org/IService1/getDataSensorXMLResponse")]
+        string getDataSensorXML();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getDataSensorXML", ReplyAction="http://tempuri.org/IService1/getDataSensorXMLResponse")]
+        System.Threading.Tasks.Task<string> getDataSensorXMLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,6 +172,22 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         public System.Threading.Tasks.Task<string> WriteDataAlarmAsync(string strMsg) {
             return base.Channel.WriteDataAlarmAsync(strMsg);
+        }
+        
+        public string getDataAlarmXML() {
+            return base.Channel.getDataAlarmXML();
+        }
+        
+        public System.Threading.Tasks.Task<string> getDataAlarmXMLAsync() {
+            return base.Channel.getDataAlarmXMLAsync();
+        }
+        
+        public string getDataSensorXML() {
+            return base.Channel.getDataSensorXML();
+        }
+        
+        public System.Threading.Tasks.Task<string> getDataSensorXMLAsync() {
+            return base.Channel.getDataSensorXMLAsync();
         }
     }
 }

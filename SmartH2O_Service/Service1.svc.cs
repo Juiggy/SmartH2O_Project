@@ -152,9 +152,36 @@ namespace SmartH2O_Service
 
                 docAlarm.Save(strPathXMLAlarmFile);
             }
-
-
             return "0"; //0 para correr tudo bem
+        }
+
+
+        public string getDataSensorXML()
+        {
+            XmlDocument doc = new XmlDocument();
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                doc.Load(strPathXMLSensorFile);
+                return doc.OuterXml;
+            }
+            else
+            {
+                return "1001"; //erro -> documento nao existe
+            }
+
+        }
+        public string getDataAlarmXML()
+        {
+            XmlDocument doc = new XmlDocument();
+            if (sensorXMLFileExists(strPathXMLAlarmFile))
+            {
+                doc.Load(strPathXMLAlarmFile);
+                return doc.OuterXml;
+            }
+            else
+            {
+                return "1001"; //erro -> documento nao existe
+            }
         }
     }
 

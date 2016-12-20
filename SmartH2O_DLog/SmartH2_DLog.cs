@@ -122,7 +122,43 @@ namespace SmartH2O_DLog
                         break;
                     case 2:
                         {
-                          
+                            Console.Clear();
+                            string strPathXMLSensorFile = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\param-data.xml";
+                            string strPathXMLAlarmFile = AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\alarms-data.xml";
+                            string strSensor = serv.getDataSensorXML();
+                            string strAlarm = serv.getDataAlarmXML();
+                            XmlDocument doc = new XmlDocument();
+                            if (strSensor.Equals("1001"))
+                            {
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("Sensor File does not exists. Please check WebService");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                doc.LoadXml(strSensor);
+                                doc.Save(strPathXMLSensorFile);
+                                Console.WriteLine("Sensor File was saved at:");
+                                Console.WriteLine(strPathXMLSensorFile);
+
+                            }
+                            if (strAlarm.Equals("1001"))
+                            {
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("Alarm File does not exists. Please check WebService");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                doc.LoadXml(strAlarm);
+                                doc.Save(strPathXMLAlarmFile);
+                                Console.WriteLine("Alarm File was saved at:");
+                                Console.WriteLine(strPathXMLAlarmFile);
+                            }
+
+                            Console.ReadKey();
                         }
                         break;
                     case 3:
