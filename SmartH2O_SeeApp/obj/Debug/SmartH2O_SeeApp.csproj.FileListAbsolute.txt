@@ -1,0 +1,9 @@
+D:\IS\SmartH2O\SmartH2O_SeeApp\bin\Debug\SmartH2O_SeeApp.exe.config
+D:\IS\SmartH2O\SmartH2O_SeeApp\bin\Debug\SmartH2O_SeeApp.exe
+D:\IS\SmartH2O\SmartH2O_SeeApp\bin\Debug\SmartH2O_SeeApp.pdb
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.Form1.resources
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.Properties.Resources.resources
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.csproj.GenerateResource.Cache
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.exe
+D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.pdb
