@@ -68,7 +68,7 @@ namespace SmartH2O_Service
             {
                // 2º Verificar se o ficheiro xml existe.não existe --> criar
 
-                if (!sensorXMLFileExists(strPathXMLSensorFile))
+                if (!XMLFileExists(strPathXMLSensorFile))
                 {
                     //cria ficheiro
                     XmlDocument doc = new XmlDocument();
@@ -92,7 +92,7 @@ namespace SmartH2O_Service
             return "0"; //0 para correr tudo bem
         }
 
-        private bool sensorXMLFileExists(string str)
+        private bool XMLFileExists(string str)
         {
             if (System.IO.File.Exists(str))
                 return true;
@@ -134,7 +134,7 @@ namespace SmartH2O_Service
             {
                 // 2º Verificar se o ficheiro xml existe.não existe --> criar
 
-                if (!sensorXMLFileExists(strPathXMLAlarmFile))
+                if (!XMLFileExists(strPathXMLAlarmFile))
                 {
                     //cria ficheiro
                     XmlDocument doc = new XmlDocument();
@@ -160,7 +160,7 @@ namespace SmartH2O_Service
         public string getDataSensorXML()
         {
             XmlDocument doc = new XmlDocument();
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 doc.Load(strPathXMLSensorFile);
                 return doc.OuterXml;
@@ -174,7 +174,7 @@ namespace SmartH2O_Service
         public string getDataAlarmXML()
         {
             XmlDocument doc = new XmlDocument();
-            if (sensorXMLFileExists(strPathXMLAlarmFile))
+            if (XMLFileExists(strPathXMLAlarmFile))
             {
                 doc.Load(strPathXMLAlarmFile);
                 return doc.OuterXml;
@@ -185,10 +185,11 @@ namespace SmartH2O_Service
             }
         }
 
-        public string getParameterMinRangeDay(string parameter, string dateBg,string dateEd)
+        public List<string> getParameterMinRangeDay(string parameter, string dateBg,string dateEd)
         {
             XmlDocument xmlSensor = new XmlDocument();
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            List<string> lista = new List<string>();
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -198,7 +199,7 @@ namespace SmartH2O_Service
 
                 DateTime dataIn = DateTime.Parse(dateBg);
                 DateTime dataEnd = DateTime.Parse(dateEd);
-                float min = float.MaxValue;
+                float min;
 
                 for (DateTime dataAux= dataIn; dataAux <= dataEnd; dataAux= dataAux.AddDays(1))
                 {
@@ -207,27 +208,33 @@ namespace SmartH2O_Service
 
                     string aux;
                     float aux2;
+                    min = float.MaxValue;
+                    //chamo o metodo que me devolve o valor do dia meto numa lista para devolver no fim
                     foreach (XmlNode node in nodeList)
                     {
                         aux = node["value"].InnerText;
-                        //aux.Replace(".", ",");
                         aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
                         if (min >= aux2)
                             min = aux2;
                     }
+                    //adiciono a uma lista
+                    if (min == float.MaxValue)
+                        min = 0;
+                    lista.Add(min.ToString());
                 }
-
-                return min.ToString();
+                //devolvo a lista
+                return lista;
             }
             else
             {
-                return "ERROR_NO_FILE"; //erro -> documento nao existe
+                return null; //erro -> documento nao existe
             }
         }
-        public string getParameterMaxRangeDay(string parameter, string dateBg, string dateEd)
+        public List<string> getParameterMaxRangeDay(string parameter, string dateBg, string dateEd)
         {
             XmlDocument xmlSensor = new XmlDocument();
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            List<string> lista = new List<string>();
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -237,7 +244,7 @@ namespace SmartH2O_Service
 
                 DateTime dataIn = DateTime.Parse(dateBg);
                 DateTime dataEnd = DateTime.Parse(dateEd);
-                float max = float.MinValue;
+                float max;
 
                 for (DateTime dataAux = dataIn; dataAux <= dataEnd; dataAux = dataAux.AddDays(1))
                 {
@@ -246,6 +253,7 @@ namespace SmartH2O_Service
 
                     string aux;
                     float aux2;
+                    max = float.MinValue;
                     foreach (XmlNode node in nodeList)
                     {
                         aux = node["value"].InnerText;
@@ -254,20 +262,25 @@ namespace SmartH2O_Service
                         if (max <= aux2)
                             max = aux2;
                     }
+
+                    if (max == float.MaxValue)
+                        max = 0;
+                    lista.Add(max.ToString());
                 }
 
-                return max.ToString();
+                return lista;
             }
             else
             {
-                return "ERROR_NO_FILE"; //erro -> documento nao existe
+                return null; //erro -> documento nao existe
             }
 
         }
-        public string getParameterAvgRangeDay(string parameter, string dateBg, string dateEd)
+        public List<string> getParameterAvgRangeDay(string parameter, string dateBg, string dateEd)
         {
             XmlDocument xmlSensor = new XmlDocument();
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            List<string> lista = new List<string>();
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -277,8 +290,8 @@ namespace SmartH2O_Service
 
                 DateTime dataIn = DateTime.Parse(dateBg);
                 DateTime dataEnd = DateTime.Parse(dateEd);
-                float conta = 0;
-                float soma = 0;
+                float conta;
+                float soma;
 
                 for (DateTime dataAux = dataIn; dataAux <= dataEnd; dataAux = dataAux.AddDays(1))
                 {
@@ -287,6 +300,8 @@ namespace SmartH2O_Service
 
                     string aux;
                     float aux2;
+                    soma = 0;
+                    conta = 0;
                     foreach (XmlNode node in nodeList)
                     {
                         aux = node["value"].InnerText;
@@ -295,13 +310,16 @@ namespace SmartH2O_Service
                         soma += aux2;
                         conta++;
                     }
+                    if (conta == 0)
+                        conta = 1;
+                    lista.Add((soma / conta).ToString());
                 }
 
-                return (soma/conta).ToString();
+                return lista;
             }
             else
             {
-                return "ERROR_NO_FILE"; //erro -> documento nao existe
+                return null; //erro -> documento nao existe
             }
 
         }
@@ -310,7 +328,7 @@ namespace SmartH2O_Service
         {
             XmlDocument xmlSensor = new XmlDocument();
             string[] resultados = new string[24];
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -359,7 +377,7 @@ namespace SmartH2O_Service
         {
             XmlDocument xmlSensor = new XmlDocument();
             string[] resultados = new string[24];
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -410,7 +428,7 @@ namespace SmartH2O_Service
         {
             XmlDocument xmlSensor = new XmlDocument();
             string[] resultados = new string[24];
-            if (sensorXMLFileExists(strPathXMLSensorFile))
+            if (XMLFileExists(strPathXMLSensorFile))
             {
                 xmlSensor.Load(strPathXMLSensorFile);
 
@@ -459,6 +477,124 @@ namespace SmartH2O_Service
                 return resultados; //erro -> documento nao existe
             }
         }
+
+        public List<string> getParameterMinWeekly(string parameter, int week)
+        {
+            //vou considerar que recebo o valor de uma semana em int
+            //pretendo saber qual é a data inicial e data final da semana
+            //chamo os métodos que já fiz para obter os valores entre datas
+
+            //metodo adaptado do stackoverflow
+            /*stackoverflow.com/questions/9592650/week-number-of-a-year-in-dateformat*/
+
+            System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.CurrentCulture;
+            int year = DateTime.Now.Year;
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = (int)cul.DateTimeFormat.FirstDayOfWeek - (int)jan1.DayOfWeek;
+            DateTime firstWeekDay = jan1.AddDays(daysOffset);
+            int firstWeek = cul.Calendar.GetWeekOfYear(jan1, cul.DateTimeFormat.CalendarWeekRule, cul.DateTimeFormat.FirstDayOfWeek);
+            if ((firstWeek <= 1 || firstWeek >= 52) && daysOffset >= -3)
+            {
+                week -= 1;
+            }
+            firstWeekDay = firstWeekDay.AddDays(week * 7);
+            string dateBg = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            firstWeekDay = firstWeekDay.AddDays(6);
+            string dateEd = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            return getParameterMinRangeDay(parameter, dateBg, dateEd);
+        }
+        public List<string> getParameterMaxWeekly(string parameter, int week)
+        {
+            //vou considerar que recebo o valor de uma semana em int
+            //pretendo saber qual é a data inicial e data final da semana
+            //chamo os métodos que já fiz para obter os valores entre datas
+
+            //metodo adaptado do stackoverflow
+            /*stackoverflow.com/questions/9592650/week-number-of-a-year-in-dateformat*/
+
+            System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.CurrentCulture;
+            int year = DateTime.Now.Year;
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = (int)cul.DateTimeFormat.FirstDayOfWeek - (int)jan1.DayOfWeek;
+            DateTime firstWeekDay = jan1.AddDays(daysOffset);
+            int firstWeek = cul.Calendar.GetWeekOfYear(jan1, cul.DateTimeFormat.CalendarWeekRule, cul.DateTimeFormat.FirstDayOfWeek);
+            if ((firstWeek <= 1 || firstWeek >= 52) && daysOffset >= -3)
+            {
+                week -= 1;
+            }
+            firstWeekDay = firstWeekDay.AddDays(week * 7);
+            string dateBg = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            firstWeekDay = firstWeekDay.AddDays(6);
+            string dateEd = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            return getParameterMaxRangeDay(parameter, dateBg, dateEd);
+        }
+        public List<string> getParameterAvgWeekly(string parameter, int week)
+        {
+            //vou considerar que recebo o valor de uma semana em int
+            //pretendo saber qual é a data inicial e data final da semana
+            //chamo os métodos que já fiz para obter os valores entre datas
+
+            //metodo adaptado do stackoverflow
+            /*stackoverflow.com/questions/9592650/week-number-of-a-year-in-dateformat*/
+
+            System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.CurrentCulture;
+            int year = DateTime.Now.Year;
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = (int)cul.DateTimeFormat.FirstDayOfWeek - (int)jan1.DayOfWeek;
+            DateTime firstWeekDay = jan1.AddDays(daysOffset);
+            int firstWeek = cul.Calendar.GetWeekOfYear(jan1, cul.DateTimeFormat.CalendarWeekRule, cul.DateTimeFormat.FirstDayOfWeek);
+            if ((firstWeek <= 1 || firstWeek >= 52) && daysOffset >= -3)
+            {
+                week -= 1;
+            }
+            firstWeekDay = firstWeekDay.AddDays(week * 7);
+            string dateBg = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            firstWeekDay = firstWeekDay.AddDays(6);
+            string dateEd = firstWeekDay.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            return getParameterAvgRangeDay(parameter, dateBg, dateEd);
+        }
+
+        public List<string> getAlarmRangeDay(List<string> parameters, string dateBg, string dateEd)
+        {
+            List<string> lista = new List<string>();
+            XmlDocument xmlAlarm = new XmlDocument();
+
+            if (XMLFileExists(strPathXMLAlarmFile))
+            {
+                xmlAlarm.Load(strPathXMLAlarmFile);
+                XmlNode root = xmlAlarm.DocumentElement;
+                DateTime dataIn = DateTime.Parse(dateBg);
+                DateTime dataEnd = DateTime.Parse(dateEd);
+                for (DateTime dataAux = dataIn; dataAux <= dataEnd; dataAux = dataAux.AddDays(1))
+                {
+                    string auxData = dataAux.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    foreach(string parameter in parameters)
+                    {
+                        XmlNodeList nodeList = root.SelectNodes("//alarm[type='" + parameter + "' and date='" + auxData + "']");
+                        foreach (XmlNode node in nodeList)
+                        {
+                            //existe um alarme. tenho de adicionar uma string à lista para devolver no fim.
+                            //vou fazer já formatado para na app ser só inserir na lista
+                            string aux = node["time"].InnerText;
+                            string[] auxTime=aux.Split('.');
+                            aux = auxTime[0];
+                            lista.Add("Sensor: " + node["idSensor"].InnerText + " has given an Alarm at: " + aux + " with message: " + node["message"].InnerText);
+
+                        }
+                    }
+                   
+
+                }
+
+                return lista;
+            }
+            else
+            {
+                return null;
+            }
+                
+        }
+
 
     }
 }

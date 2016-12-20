@@ -30,17 +30,26 @@ namespace SmartH2O_Service
         [OperationContract]
         string getDataSensorXML();
         [OperationContract]
-        string getParameterMinRangeDay(string parameter, string dateBg, string dateEd);
+        List<string> getParameterMinRangeDay(string parameter, string dateBg, string dateEd);
         [OperationContract]
-        string getParameterMaxRangeDay(string parameter, string dateBg, string dateEd);
+        List<string> getParameterMaxRangeDay(string parameter, string dateBg, string dateEd);
         [OperationContract]
-        string getParameterAvgRangeDay(string parameter, string dateBg, string dateEd);
+        List<string> getParameterAvgRangeDay(string parameter, string dateBg, string dateEd);
         [OperationContract]
         string[] getParameterMinHourInDay(string parameter, string day);
         [OperationContract]
         string[] getParameterMaxHourInDay(string parameter, string day);
         [OperationContract]
         string[] getParameterAvgHourInDay(string parameter, string day);
+        [OperationContract]
+        List<string> getParameterMinWeekly(string parameter, int week);
+        [OperationContract]
+        List<string> getParameterMaxWeekly(string parameter, int week);
+        [OperationContract]
+        List<string> getParameterAvgWeekly(string parameter, int week);
+
+        [OperationContract]
+        List<string> getAlarmRangeDay(List<string> parameters, string dateBg, string dateEd);
     }
 
 
