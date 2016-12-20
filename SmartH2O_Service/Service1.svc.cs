@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Xml.Schema;
 using System.Xml;
+using System.Globalization;
 
 namespace SmartH2O_Service
 {
@@ -183,7 +184,281 @@ namespace SmartH2O_Service
                 return "1001"; //erro -> documento nao existe
             }
         }
+
+        public string getParameterMinRangeDay(string parameter, string dateBg,string dateEd)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+
+                DateTime dataIn = DateTime.Parse(dateBg);
+                DateTime dataEnd = DateTime.Parse(dateEd);
+                float min = float.MaxValue;
+
+                for (DateTime dataAux= dataIn; dataAux <= dataEnd; dataAux= dataAux.AddDays(1))
+                {
+                    string auxData = dataAux.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + auxData + "']");
+
+                    string aux;
+                    float aux2;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        aux = node["value"].InnerText;
+                        //aux.Replace(".", ",");
+                        aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                        if (min >= aux2)
+                            min = aux2;
+                    }
+                }
+
+                return min.ToString();
+            }
+            else
+            {
+                return "ERROR_NO_FILE"; //erro -> documento nao existe
+            }
+        }
+        public string getParameterMaxRangeDay(string parameter, string dateBg, string dateEd)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+
+                DateTime dataIn = DateTime.Parse(dateBg);
+                DateTime dataEnd = DateTime.Parse(dateEd);
+                float max = float.MinValue;
+
+                for (DateTime dataAux = dataIn; dataAux <= dataEnd; dataAux = dataAux.AddDays(1))
+                {
+                    string auxData = dataAux.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + auxData + "']");
+
+                    string aux;
+                    float aux2;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        aux = node["value"].InnerText;
+                        //aux.Replace(".", ",");
+                        aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                        if (max <= aux2)
+                            max = aux2;
+                    }
+                }
+
+                return max.ToString();
+            }
+            else
+            {
+                return "ERROR_NO_FILE"; //erro -> documento nao existe
+            }
+
+        }
+        public string getParameterAvgRangeDay(string parameter, string dateBg, string dateEd)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+
+                DateTime dataIn = DateTime.Parse(dateBg);
+                DateTime dataEnd = DateTime.Parse(dateEd);
+                float conta = 0;
+                float soma = 0;
+
+                for (DateTime dataAux = dataIn; dataAux <= dataEnd; dataAux = dataAux.AddDays(1))
+                {
+                    string auxData = dataAux.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + auxData + "']");
+
+                    string aux;
+                    float aux2;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        aux = node["value"].InnerText;
+                        //aux.Replace(".", ",");
+                        aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                        soma += aux2;
+                        conta++;
+                    }
+                }
+
+                return (soma/conta).ToString();
+            }
+            else
+            {
+                return "ERROR_NO_FILE"; //erro -> documento nao existe
+            }
+
+        }
+
+        public string[] getParameterMinHourInDay(string parameter, string day)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            string[] resultados = new string[24];
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+                XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + day + "']");
+                
+                string aux;
+                float aux2;
+                float min;
+                //faço um for de 00 a 24 horas
+                for (int i = 0; i <= 23; i++)
+                {
+                    aux = "";
+                    aux2 = 0;
+                    min = float.MaxValue;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        string[] strHora= node["time"].InnerText.Split(':');
+                        int hora = Int32.Parse(strHora[0]);
+                        if (hora == i)
+                        {
+                            aux = node["value"].InnerText;
+                            aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                            if (min >= aux2)
+                                min = aux2;
+
+                        }
+                    }
+                    //tenho de adicionar aqui o parametro numa lista de 0 a 24
+                    if (min == float.MaxValue)
+                            min = 0;
+                    resultados[i] = min.ToString();
+                }
+                //return de uma lista/array
+                return resultados;
+            }
+            else
+            {
+                return resultados; //erro -> documento nao existe
+            }
+        }
+
+        public string[] getParameterMaxHourInDay(string parameter, string day)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            string[] resultados = new string[24];
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+                XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + day + "']");
+                
+
+                string aux;
+                float aux2;
+                float max;
+                //faço um for de 00 a 24 horas
+                for (int i = 0; i <= 23; i++)
+                {
+                    aux = "";
+                    aux2 = 0;
+                    max = float.MinValue;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        string[] strHora = node["time"].InnerText.Split(':');
+                        int hora = Int32.Parse(strHora[0]);
+                        if (hora == i)
+                        {
+                            aux = node["value"].InnerText;
+                            aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                            if (max <= aux2)
+                                max = aux2;
+
+                        }
+                    }
+                    //tenho de adicionar aqui o parametro numa lista de 0 a 24
+                    if (max == float.MinValue)
+                        max = 0;
+                    resultados[i] = max.ToString();
+                }
+                //return de uma lista/array
+                return resultados;
+            }
+            else
+            {
+                return resultados; //erro -> documento nao existe
+            }
+        }
+
+
+        public string[] getParameterAvgHourInDay(string parameter, string day)
+        {
+            XmlDocument xmlSensor = new XmlDocument();
+            string[] resultados = new string[24];
+            if (sensorXMLFileExists(strPathXMLSensorFile))
+            {
+                xmlSensor.Load(strPathXMLSensorFile);
+
+                //Quero os nós do parametro e do dia em especifico
+                //faço um ciclo for each para verificar o que quero
+                XmlNode root = xmlSensor.DocumentElement;
+                XmlNodeList nodeList = root.SelectNodes("//parameter[type='" + parameter + "' and date='" + day + "']");
+
+                string aux;
+                float aux2;
+                float min;
+                int conta;
+                float soma;
+                float result;
+                //faço um for de 00 a 24 horas
+                for (int i = 0; i <= 23; i++)
+                {
+                    aux = "";
+                    aux2 = 0;
+                    conta = 0;
+                    soma = 0;
+                    result = 0;
+                    foreach (XmlNode node in nodeList)
+                    {
+                        string[] strHora = node["time"].InnerText.Split(':');
+                        int hora = Int32.Parse(strHora[0]);
+                        if (hora == i)
+                        {
+                            aux = node["value"].InnerText;
+                            aux2 = float.Parse(aux, CultureInfo.InvariantCulture);
+                            soma += aux2;
+                            conta++;
+
+                        }
+                    }
+                    //tenho de adicionar aqui o parametro numa lista de 0 a 24
+                    if (conta != 0)
+                        result = soma / conta;
+                    resultados[i] = result.ToString();
+                }
+                //return de uma lista/array
+                return resultados;
+            }
+            else
+            {
+                return resultados; //erro -> documento nao existe
+            }
+        }
+
     }
-
-
 }

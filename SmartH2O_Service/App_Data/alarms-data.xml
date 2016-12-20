@@ -1430,4 +1430,94 @@
     <value>7.7</value>
     <message>CI2 less than 8.9</message>
   </alarm>
+  <alarm>
+    <idMessage>76081bc4-0eea-444f-af09-f99473c67fe4</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>14:41:34.6425482</time>
+    <value>6.8</value>
+    <message>Value sensor 1 not in acceptable range - between 6 a 8</message>
+  </alarm>
+  <alarm>
+    <idMessage>6aadf19e-fd4e-4cf6-a002-8d0014aa4201</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:13.3141117</time>
+    <value>7.4</value>
+    <message>CI2 less than 8.9</message>
+  </alarm>
+  <alarm>
+    <idMessage>81ffa032-fa0e-4cd5-b0bd-ca943aef67eb</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:14.3150836</time>
+    <value>5.6</value>
+    <message>Value sensor 1 not in acceptable range - between 5 a 5.9</message>
+  </alarm>
+  <alarm>
+    <idMessage>cf4c7aa3-7b26-4af8-a82d-eba63d3fb063</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:20.3195357</time>
+    <value>5.4</value>
+    <message>Value sensor 1 not in acceptable range - between 5 a 5.9</message>
+  </alarm>
+  <alarm>
+    <idMessage>f652a0e7-f5f2-434c-bb2e-478055818ee0</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:22.3201736</time>
+    <value>7.7</value>
+    <message>CI2 less than 8.9</message>
+  </alarm>
+  <alarm>
+    <idMessage>76081bc4-0eea-444f-af09-f99473c67fe4</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>14:41:34.6425482</time>
+    <value>6.8</value>
+    <message>Value sensor 1 not in acceptable range - between 6 a 8</message>
+  </alarm>
+  <alarm>
+    <idMessage>0c1f3c71-e721-4611-8edb-463bcafd4236</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:24:51.7280764</time>
+    <value>6.8</value>
+    <message>PH greater than 6.5</message>
+  </alarm>
+  <alarm>
+    <idMessage>81273108-de35-404d-ab7b-1235fdca8720</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:24:54.7318953</time>
+    <value>6.8</value>
+    <message>PH greater than 6.5</message>
+  </alarm>
+  <alarm>
+    <idMessage>0b5430c6-c46d-4d32-9891-9efd2e3e3cda</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:25:03.7378182</time>
+    <value>5.5</value>
+    <message>Value sensor 1 not in acceptable range - between 5 a 5.9</message>
+  </alarm>
+  <alarm>
+    <idMessage>1aceecd9-5032-4536-954a-84b575d15b4c</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:25:08.7399859</time>
+    <value>8.2</value>
+    <message>CI2 less than 8.9</message>
+  </alarm>
 </alarms>

@@ -3,8 +3,8 @@
     <idMessage>e96a4255-044d-490b-b5bc-c589c8b5d174</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
-    <time>15:14:54.2026246</time>
+    <date>2016-12-15</date>
+    <time>05:14:54.2026246</time>
     <value>6.6</value>
   </parameter>
   <parameter>
@@ -27,7 +27,7 @@
     <idMessage>aad1bdd5-8595-4baa-a637-7d8621dbcf68</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-16</date>
     <time>15:14:57.2040059</time>
     <value>6.4</value>
   </parameter>
@@ -51,7 +51,7 @@
     <idMessage>568c6d15-efd4-450e-a411-1b1326537e54</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-17</date>
     <time>15:15:00.2102900</time>
     <value>5.4</value>
   </parameter>
@@ -75,7 +75,7 @@
     <idMessage>92210bb8-c039-409a-8d47-fc847b6ed6d1</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-18</date>
     <time>15:15:03.2125468</time>
     <value>5.7</value>
   </parameter>
@@ -99,7 +99,7 @@
     <idMessage>cbc8ec53-e31c-413b-b12b-f23684a21b99</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-19</date>
     <time>15:15:06.2146166</time>
     <value>6.0</value>
   </parameter>
@@ -147,9 +147,9 @@
     <idMessage>b47aef42-1825-40fd-a42e-7fed590cd0e6</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
-    <time>15:15:12.2170538</time>
-    <value>5.8</value>
+    <date>2016-12-15</date>
+    <time>12:15:12.2170538</time>
+    <value>4.8</value>
   </parameter>
   <parameter>
     <idMessage>1dacdb8e-d947-4fdf-b4ce-d296fc6c78fa</idMessage>
@@ -171,7 +171,7 @@
     <idMessage>940ea5ab-32d6-4ca9-ac2d-f596c0067eeb</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-16</date>
     <time>15:15:15.2188195</time>
     <value>6.8</value>
   </parameter>
@@ -195,7 +195,7 @@
     <idMessage>f704407b-86e7-42a9-accf-04f437880287</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-17</date>
     <time>15:15:18.2248597</time>
     <value>6.5</value>
   </parameter>
@@ -219,7 +219,7 @@
     <idMessage>79f0cf07-b7f8-43cd-91f2-b24e0a54d52d</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-18</date>
     <time>15:15:21.2314597</time>
     <value>5.1</value>
   </parameter>
@@ -243,7 +243,7 @@
     <idMessage>166fe336-16be-4c3e-90d0-d2852a364759</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-19</date>
     <time>15:15:24.2341705</time>
     <value>6.3</value>
   </parameter>
@@ -291,7 +291,7 @@
     <idMessage>6c46ec9b-b28b-4eb0-ab20-5c286d071603</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-15</date>
     <time>15:15:30.2371513</time>
     <value>5.0</value>
   </parameter>
@@ -315,7 +315,7 @@
     <idMessage>dbe44bcc-3a20-4fd7-8478-5bfda91cecb7</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-16</date>
     <time>15:15:33.2436577</time>
     <value>5.6</value>
   </parameter>
@@ -339,7 +339,7 @@
     <idMessage>9725afd0-3ac6-429d-8349-f84731a1475e</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-17</date>
     <time>15:15:36.2542637</time>
     <value>5.1</value>
   </parameter>
@@ -363,7 +363,7 @@
     <idMessage>f9c790dd-ed4e-4c71-96f8-361c694b2037</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-18</date>
     <time>15:15:39.2551570</time>
     <value>6.7</value>
   </parameter>
@@ -387,7 +387,7 @@
     <idMessage>21075b67-3840-4be6-9a9f-cce1154b1678</idMessage>
     <idSensor>1</idSensor>
     <type>PH</type>
-    <date>2016-12-20</date>
+    <date>2016-12-19</date>
     <time>15:15:42.2625934</time>
     <value>5.5</value>
   </parameter>
@@ -3734,5 +3734,341 @@
     <date>2016-12-20</date>
     <time>15:22:40.6366545</time>
     <value>1.70</value>
+  </parameter>
+  <parameter>
+    <idMessage>4d00b12e-738c-4789-8a04-dfeb596b7f73</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>14:41:36.6438221</time>
+    <value>11.6</value>
+  </parameter>
+  <parameter>
+    <idMessage>3737e942-942c-44ff-ade6-1ce0be70df53</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:02.3045961</time>
+    <value>6.0</value>
+  </parameter>
+  <parameter>
+    <idMessage>8f17c552-4bf1-4649-a4fd-50dd7bf5ef61</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:03.3078433</time>
+    <value>1.5</value>
+  </parameter>
+  <parameter>
+    <idMessage>501d38a7-9597-47d1-a539-cd2ab214f350</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:04.3081998</time>
+    <value>7.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>ca42a385-d322-45a8-bb8e-b100c813db98</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:05.3093541</time>
+    <value>5.7</value>
+  </parameter>
+  <parameter>
+    <idMessage>d74f6ed3-83bc-488d-b6b9-7cc3417debbd</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:06.3101428</time>
+    <value>1.91</value>
+  </parameter>
+  <parameter>
+    <idMessage>3b3ba5f3-ae5f-4cd6-8f99-2e2211849c1d</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:07.3109224</time>
+    <value>11.4</value>
+  </parameter>
+  <parameter>
+    <idMessage>3cea3aeb-1a9f-450d-a6e1-292479731e95</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:08.3114609</time>
+    <value>6.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>5ce0a20f-3a5e-4be0-aa98-54fc55ed6952</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:09.3119725</time>
+    <value>1.87</value>
+  </parameter>
+  <parameter>
+    <idMessage>2c74462b-3200-463c-ba02-eb8b6e8a9c0d</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:10.3123578</time>
+    <value>10.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>91f1a457-7b74-4808-b0fb-dd89c2b2b9a1</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:11.3133940</time>
+    <value>6.0</value>
+  </parameter>
+  <parameter>
+    <idMessage>e47dfe38-b71e-4809-aa79-00eb2a8d2b49</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:12.3138440</time>
+    <value>1.68</value>
+  </parameter>
+  <parameter>
+    <idMessage>6aadf19e-fd4e-4cf6-a002-8d0014aa4201</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:13.3141117</time>
+    <value>7.4</value>
+  </parameter>
+  <parameter>
+    <idMessage>81ffa032-fa0e-4cd5-b0bd-ca943aef67eb</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:14.3150836</time>
+    <value>5.6</value>
+  </parameter>
+  <parameter>
+    <idMessage>41be6a86-9692-4971-95fe-5b0b7a54a609</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:15.3156122</time>
+    <value>1.3</value>
+  </parameter>
+  <parameter>
+    <idMessage>88e12e06-5730-4448-bbd0-e36d97698c56</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:16.3165193</time>
+    <value>11.6</value>
+  </parameter>
+  <parameter>
+    <idMessage>40527f20-67c3-4a15-bbb6-afcf201ac658</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:17.3170242</time>
+    <value>6.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>5fdb8bf2-9ce6-4302-9bb0-40fc9293d3da</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:18.3182436</time>
+    <value>1.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>9b08d72b-ad3e-47f0-b52c-a23946636888</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:19.3189297</time>
+    <value>11.4</value>
+  </parameter>
+  <parameter>
+    <idMessage>cf4c7aa3-7b26-4af8-a82d-eba63d3fb063</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>16:48:20.3195357</time>
+    <value>5.4</value>
+  </parameter>
+  <parameter>
+    <idMessage>bd3bbaf5-2546-421a-9ab3-b0e29cfebc0d</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>16:48:21.3198444</time>
+    <value>1.88</value>
+  </parameter>
+  <parameter>
+    <idMessage>f652a0e7-f5f2-434c-bb2e-478055818ee0</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>16:48:22.3201736</time>
+    <value>7.7</value>
+  </parameter>
+  <parameter>
+    <idMessage>4d00b12e-738c-4789-8a04-dfeb596b7f73</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>14:41:36.6438221</time>
+    <value>11.6</value>
+  </parameter>
+  <parameter>
+    <idMessage>0c1f3c71-e721-4611-8edb-463bcafd4236</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:24:51.7280764</time>
+    <value>6.8</value>
+  </parameter>
+  <parameter>
+    <idMessage>4aceac11-9847-4688-8781-cc6f1ff4c1cc</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:24:52.7309775</time>
+    <value>1.79</value>
+  </parameter>
+  <parameter>
+    <idMessage>a90e28ae-6fbd-4c71-b365-8bc3184a804f</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:24:53.7313189</time>
+    <value>9.4</value>
+  </parameter>
+  <parameter>
+    <idMessage>81273108-de35-404d-ab7b-1235fdca8720</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:24:54.7318953</time>
+    <value>6.8</value>
+  </parameter>
+  <parameter>
+    <idMessage>5bced952-690e-48c4-b08d-7f33d134b0ca</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:24:55.7324405</time>
+    <value>1.66</value>
+  </parameter>
+  <parameter>
+    <idMessage>cbb67378-80a7-4d78-9cbd-ed4050d8cdd5</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:24:56.7335181</time>
+    <value>9.5</value>
+  </parameter>
+  <parameter>
+    <idMessage>619ddd41-1a79-46f1-81d6-3c13fe84b279</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:24:57.7338529</time>
+    <value>6.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>f86409c5-0e3b-4287-a029-c94413fdcb9d</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:24:58.7343910</time>
+    <value>1.77</value>
+  </parameter>
+  <parameter>
+    <idMessage>9a62ae9b-d378-4267-87cf-245054964176</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:24:59.7351844</time>
+    <value>9.1</value>
+  </parameter>
+  <parameter>
+    <idMessage>9c94151d-1b81-414e-a34b-d2d049499ab9</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:25:00.7359333</time>
+    <value>6.5</value>
+  </parameter>
+  <parameter>
+    <idMessage>c33aab5d-21cd-47d0-b144-768360abc38b</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:25:01.7367244</time>
+    <value>1.39</value>
+  </parameter>
+  <parameter>
+    <idMessage>6854ebef-c98f-474c-b9f8-5e64493c63b8</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:25:02.7372079</time>
+    <value>11.7</value>
+  </parameter>
+  <parameter>
+    <idMessage>0b5430c6-c46d-4d32-9891-9efd2e3e3cda</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:25:03.7378182</time>
+    <value>5.5</value>
+  </parameter>
+  <parameter>
+    <idMessage>9dd98325-d8bc-4698-b2a2-8b61533163c6</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:25:04.7386014</time>
+    <value>1.54</value>
+  </parameter>
+  <parameter>
+    <idMessage>171d927b-2108-4f47-ad6e-b688fec09506</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:25:05.7388715</time>
+    <value>11.6</value>
+  </parameter>
+  <parameter>
+    <idMessage>c89eaa98-23eb-44d8-996b-5597e8f074f3</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:25:06.7395386</time>
+    <value>6.3</value>
+  </parameter>
+  <parameter>
+    <idMessage>f3fe72c0-c08f-46e6-a638-45cfac070608</idMessage>
+    <idSensor>2</idSensor>
+    <type>NH3</type>
+    <date>2016-12-20</date>
+    <time>20:25:07.7397620</time>
+    <value>1.93</value>
+  </parameter>
+  <parameter>
+    <idMessage>1aceecd9-5032-4536-954a-84b575d15b4c</idMessage>
+    <idSensor>3</idSensor>
+    <type>CI2</type>
+    <date>2016-12-20</date>
+    <time>20:25:08.7399859</time>
+    <value>8.2</value>
+  </parameter>
+  <parameter>
+    <idMessage>2d045c27-eacd-4e58-8485-9e9e1c016e0b</idMessage>
+    <idSensor>1</idSensor>
+    <type>PH</type>
+    <date>2016-12-20</date>
+    <time>20:25:09.7408697</time>
+    <value>6.3</value>
   </parameter>
 </parameters>
