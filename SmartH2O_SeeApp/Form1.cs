@@ -1,4 +1,4 @@
-﻿using SmartH2O_SeeApp.SmartH2O_Service;
+﻿using SmartH2O_Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace SmartH2O_SeeApp
 {
     public partial class Form1 : Form
     {
-        static Service1Client serv;
+        static SmatH2O_Service.Service1Client serv;
         public Form1()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace SmartH2O_SeeApp
 
             try
             {
-                serv = new Service1Client();
+                serv = new SmatH2O_Service.Service1Client();
             }
             catch(Exception eau)
             {
@@ -206,14 +206,60 @@ namespace SmartH2O_SeeApp
 
         private void btSensor_Click(object sender, EventArgs e)
         {
-            ExcelHandler.CreateNewExcelFile(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx");
-            List<string[]> lista = new List<string[]>();
+            
             string[] parametros = GetListaParametros();
-            foreach(string parametro in parametros)
+            List<string[]> listaMin = new List<string[]>();
+            List<string[]> listaMax = new List<string[]>();
+            List<string[]> listaAvg = new List<string[]>();
+            if (rbSensor1.Checked)
             {
-                lista.Add(serv.getParameterAvgHourInDay(parametro, dateToStr(dtSensor1.Text)));
+                ExcelHandler.CreateNewExcelFile(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx");
+
+                foreach (string parametro in parametros)
+                {
+                    listaMin.Add(serv.getParameterMinHourInDay(parametro, dateToStr(dtSensor1.Text)));
+                    listaMax.Add(serv.getParameterMaxHourInDay(parametro, dateToStr(dtSensor1.Text)));
+                    listaAvg.Add(serv.getParameterAvgHourInDay(parametro, dateToStr(dtSensor1.Text)));
+                }
+                ExcelHandler.WriteToExcelFile(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx", listaMin, listaMax, listaAvg, parametros);
             }
-            ExcelHandler.WriteToExcelFileDay(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx",lista,parametros);
+            else
+           if (rbSensor2.Checked)
+            {
+                //fazer uma verificação se o valor da caixa está entre 1 e 52
+                
+                if ((lbWeek.Value>0) && (lbWeek.Value < 53)) {
+                    ExcelHandler.CreateNewExcelFile(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx");
+
+                    foreach (string parametro in parametros)
+                    {
+                        int auxSemana = Decimal.ToInt32(lbWeek.Value);
+                        listaMin.Add(serv.getParameterMinWeekly(parametro, auxSemana));
+                        listaMax.Add(serv.getParameterMaxWeekly(parametro, auxSemana));
+                        listaAvg.Add(serv.getParameterAvgWeekly(parametro, auxSemana));
+                    }
+                    ExcelHandler.WriteToExcelFileWeek(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx", listaMin, listaMax, listaAvg, parametros);
+                }
+                else
+                {
+                    MessageBox.Show("Week number out of range [1-52]");
+                }
+            }
+            else
+           if (rbSensor3.Checked)
+            {
+                ExcelHandler.CreateNewExcelFile(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx");
+                foreach (string parametro in parametros)
+                {
+                    listaMin.Add(serv.getParameterMinRangeDay(parametro, dateToStr(dtSensor1.Text), dateToStr(dtSensor2.Text)));
+                    listaMax.Add(serv.getParameterMaxRangeDay(parametro, dateToStr(dtSensor1.Text), dateToStr(dtSensor2.Text)));
+                    listaAvg.Add(serv.getParameterAvgRangeDay(parametro, dateToStr(dtSensor1.Text), dateToStr(dtSensor2.Text)));
+                }
+                ExcelHandler.WriteToExcelFileRangeDays(AppDomain.CurrentDomain.BaseDirectory.ToString() + "App_data\\SensorGrafico.xlsx", listaMin, listaMax, listaAvg, parametros);
+
+            }
+
+
         }
     }
 }

@@ -113,6 +113,66 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getDataSensorXML", ReplyAction="http://tempuri.org/IService1/getDataSensorXMLResponse")]
         System.Threading.Tasks.Task<string> getDataSensorXMLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterMinRangeDayResponse")]
+        string[] getParameterMinRangeDay(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterMinRangeDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMinRangeDayAsync(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterMaxRangeDayResponse")]
+        string[] getParameterMaxRangeDay(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterMaxRangeDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMaxRangeDayAsync(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterAvgRangeDayResponse")]
+        string[] getParameterAvgRangeDay(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgRangeDay", ReplyAction="http://tempuri.org/IService1/getParameterAvgRangeDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterAvgRangeDayAsync(string parameter, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterMinHourInDayResponse")]
+        string[] getParameterMinHourInDay(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterMinHourInDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMinHourInDayAsync(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterMaxHourInDayResponse")]
+        string[] getParameterMaxHourInDay(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterMaxHourInDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMaxHourInDayAsync(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterAvgHourInDayResponse")]
+        string[] getParameterAvgHourInDay(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgHourInDay", ReplyAction="http://tempuri.org/IService1/getParameterAvgHourInDayResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterAvgHourInDayAsync(string parameter, string day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinWeekly", ReplyAction="http://tempuri.org/IService1/getParameterMinWeeklyResponse")]
+        string[] getParameterMinWeekly(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMinWeekly", ReplyAction="http://tempuri.org/IService1/getParameterMinWeeklyResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMinWeeklyAsync(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxWeekly", ReplyAction="http://tempuri.org/IService1/getParameterMaxWeeklyResponse")]
+        string[] getParameterMaxWeekly(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterMaxWeekly", ReplyAction="http://tempuri.org/IService1/getParameterMaxWeeklyResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterMaxWeeklyAsync(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgWeekly", ReplyAction="http://tempuri.org/IService1/getParameterAvgWeeklyResponse")]
+        string[] getParameterAvgWeekly(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getParameterAvgWeekly", ReplyAction="http://tempuri.org/IService1/getParameterAvgWeeklyResponse")]
+        System.Threading.Tasks.Task<string[]> getParameterAvgWeeklyAsync(string parameter, int week);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAlarmRangeDay", ReplyAction="http://tempuri.org/IService1/getAlarmRangeDayResponse")]
+        string[] getAlarmRangeDay(string[] parameters, string dateBg, string dateEd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAlarmRangeDay", ReplyAction="http://tempuri.org/IService1/getAlarmRangeDayResponse")]
+        System.Threading.Tasks.Task<string[]> getAlarmRangeDayAsync(string[] parameters, string dateBg, string dateEd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -188,6 +248,86 @@ namespace SmartH2O_DLog.SmartH2O_Service {
         
         public System.Threading.Tasks.Task<string> getDataSensorXMLAsync() {
             return base.Channel.getDataSensorXMLAsync();
+        }
+        
+        public string[] getParameterMinRangeDay(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterMinRangeDay(parameter, dateBg, dateEd);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMinRangeDayAsync(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterMinRangeDayAsync(parameter, dateBg, dateEd);
+        }
+        
+        public string[] getParameterMaxRangeDay(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterMaxRangeDay(parameter, dateBg, dateEd);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMaxRangeDayAsync(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterMaxRangeDayAsync(parameter, dateBg, dateEd);
+        }
+        
+        public string[] getParameterAvgRangeDay(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterAvgRangeDay(parameter, dateBg, dateEd);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterAvgRangeDayAsync(string parameter, string dateBg, string dateEd) {
+            return base.Channel.getParameterAvgRangeDayAsync(parameter, dateBg, dateEd);
+        }
+        
+        public string[] getParameterMinHourInDay(string parameter, string day) {
+            return base.Channel.getParameterMinHourInDay(parameter, day);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMinHourInDayAsync(string parameter, string day) {
+            return base.Channel.getParameterMinHourInDayAsync(parameter, day);
+        }
+        
+        public string[] getParameterMaxHourInDay(string parameter, string day) {
+            return base.Channel.getParameterMaxHourInDay(parameter, day);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMaxHourInDayAsync(string parameter, string day) {
+            return base.Channel.getParameterMaxHourInDayAsync(parameter, day);
+        }
+        
+        public string[] getParameterAvgHourInDay(string parameter, string day) {
+            return base.Channel.getParameterAvgHourInDay(parameter, day);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterAvgHourInDayAsync(string parameter, string day) {
+            return base.Channel.getParameterAvgHourInDayAsync(parameter, day);
+        }
+        
+        public string[] getParameterMinWeekly(string parameter, int week) {
+            return base.Channel.getParameterMinWeekly(parameter, week);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMinWeeklyAsync(string parameter, int week) {
+            return base.Channel.getParameterMinWeeklyAsync(parameter, week);
+        }
+        
+        public string[] getParameterMaxWeekly(string parameter, int week) {
+            return base.Channel.getParameterMaxWeekly(parameter, week);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterMaxWeeklyAsync(string parameter, int week) {
+            return base.Channel.getParameterMaxWeeklyAsync(parameter, week);
+        }
+        
+        public string[] getParameterAvgWeekly(string parameter, int week) {
+            return base.Channel.getParameterAvgWeekly(parameter, week);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getParameterAvgWeeklyAsync(string parameter, int week) {
+            return base.Channel.getParameterAvgWeeklyAsync(parameter, week);
+        }
+        
+        public string[] getAlarmRangeDay(string[] parameters, string dateBg, string dateEd) {
+            return base.Channel.getAlarmRangeDay(parameters, dateBg, dateEd);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> getAlarmRangeDayAsync(string[] parameters, string dateBg, string dateEd) {
+            return base.Channel.getAlarmRangeDayAsync(parameters, dateBg, dateEd);
         }
     }
 }

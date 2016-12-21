@@ -79,6 +79,9 @@
     <None Include="Service References\SmartH2O_Service\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\SmartH2O_Service\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SmartH2O_Service\SmartH2O_DLog.SmartH2O_Service.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

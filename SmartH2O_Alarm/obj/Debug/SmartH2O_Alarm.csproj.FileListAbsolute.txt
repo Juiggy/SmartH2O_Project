@@ -1,0 +1,14 @@
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.exe.config
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.exe
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.pdb
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.exe
+D:\IS\SmartH2O_DU\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.pdb
+D:\IS\SmartH2O\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.exe.config
+D:\IS\SmartH2O\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.exe
+D:\IS\SmartH2O\SmartH2O_Alarm\bin\Debug\SmartH2O_Alarm.pdb
+D:\IS\SmartH2O\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.exe
+D:\IS\SmartH2O\SmartH2O_Alarm\obj\Debug\SmartH2O_Alarm.pdb
+D:\IS\SmartH2O\SmartH2O_Alarm\bin\Debug\M2Mqtt.Net.dll
+D:\IS\SmartH2O\SmartH2O_Alarm\bin\Debug\M2Mqtt.Net.pdb

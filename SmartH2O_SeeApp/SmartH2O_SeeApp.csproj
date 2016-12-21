@@ -56,7 +56,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\SmartH2O_Service\Reference.cs">
+    <Compile Include="Service References\SmatH2O_Service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -73,6 +73,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\SmartH2O_Service.CompositeType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,21 +83,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\SmartH2O_Service\Service1.wsdl" />
-    <None Include="Service References\SmartH2O_Service\Service1.xsd">
+    <None Include="Service References\SmatH2O_Service\Service1.wsdl" />
+    <None Include="Service References\SmatH2O_Service\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SmartH2O_Service\Service11.xsd">
+    <None Include="Service References\SmatH2O_Service\Service11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SmartH2O_Service\Service12.xsd">
+    <None Include="Service References\SmatH2O_Service\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SmartH2O_Service\Service13.xsd">
+    <None Include="Service References\SmatH2O_Service\Service13.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SmartH2O_Service\SmartH2O_SeeApp.SmartH2O_Service.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -106,28 +104,32 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SmartH2O_Service\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmartH2O_Service\Service1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmartH2O_Service\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmartH2O_Service\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SmartH2O_Service\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ExcelLib\ExcelLib.csproj">
       <Project>{b37ea716-9c14-42aa-b4da-a2a884d0ad5a}</Project>
       <Name>ExcelLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmartH2O_Service\SmartH2O_Service.csproj">
+      <Project>{948081d1-54e7-4c9f-bb16-9855c90aa8e3}</Project>
+      <Name>SmartH2O_Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SmatH2O_Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmatH2O_Service\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmatH2O_Service\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmatH2O_Service\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SmatH2O_Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

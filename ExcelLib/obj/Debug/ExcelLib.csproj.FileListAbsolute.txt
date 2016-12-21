@@ -1,0 +1,6 @@
+D:\IS\SmartH2O\ExcelLib\bin\Debug\ExcelLib.dll
+D:\IS\SmartH2O\ExcelLib\bin\Debug\ExcelLib.pdb
+D:\IS\SmartH2O\ExcelLib\obj\Debug\ExcelLib.csprojResolveAssemblyReference.cache
+D:\IS\SmartH2O\ExcelLib\obj\Debug\ExcelLib.csproj.ResolveComReference.cache
+D:\IS\SmartH2O\ExcelLib\obj\Debug\ExcelLib.dll
+D:\IS\SmartH2O\ExcelLib\obj\Debug\ExcelLib.pdb

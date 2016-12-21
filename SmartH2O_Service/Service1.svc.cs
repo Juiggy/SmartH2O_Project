@@ -263,7 +263,7 @@ namespace SmartH2O_Service
                             max = aux2;
                     }
 
-                    if (max == float.MaxValue)
+                    if (max == float.MinValue)
                         max = 0;
                     lista.Add(max.ToString());
                 }
