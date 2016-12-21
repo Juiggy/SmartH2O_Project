@@ -16,3 +16,5 @@ D:\IS\SmartH2O\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.pdb
 \\vmware-host\Shared Folders\Documents\Escola\IS\SmartH2O_Project\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.Form1.resources
 \\vmware-host\Shared Folders\Documents\Escola\IS\SmartH2O_Project\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.Properties.Resources.resources
 \\vmware-host\Shared Folders\Documents\Escola\IS\SmartH2O_Project\SmartH2O_SeeApp\obj\Debug\SmartH2O_SeeApp.csproj.GenerateResource.Cache
+D:\IS\SmartH2O\SmartH2O_SeeApp\bin\Debug\ExcelLib.dll
+D:\IS\SmartH2O\SmartH2O_SeeApp\bin\Debug\ExcelLib.pdb

@@ -15,6 +15,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_Service", "SmartH2O_Service\SmartH2O_Service.csproj", "{948081D1-54E7-4C9F-BB16-9855C90AA8E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_SeeApp", "SmartH2O_SeeApp\SmartH2O_SeeApp.csproj", "{5DD90FAB-8885-4B28-9851-228DB35C3B2D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{948081D1-54E7-4C9F-BB16-9855C90AA8E3} = {948081D1-54E7-4C9F-BB16-9855C90AA8E3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelLib", "ExcelLib\ExcelLib.csproj", "{B37EA716-9C14-42AA-B4DA-A2A884D0AD5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +47,10 @@ Global
 		{5DD90FAB-8885-4B28-9851-228DB35C3B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DD90FAB-8885-4B28-9851-228DB35C3B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DD90FAB-8885-4B28-9851-228DB35C3B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37EA716-9C14-42AA-B4DA-A2A884D0AD5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37EA716-9C14-42AA-B4DA-A2A884D0AD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37EA716-9C14-42AA-B4DA-A2A884D0AD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37EA716-9C14-42AA-B4DA-A2A884D0AD5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
